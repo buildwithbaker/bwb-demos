@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chequamegon Mercantile — General Store &amp; Local Goods, Ashland WI</title>
+<meta name="description" content="An independent general store on Ashland's Main Street: provisions, camp &amp; cabin supplies, gifts, and goods from Lake Superior makers. Come see us.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Chequamegon Mercantile — General Store &amp; Local Goods, Ashland WI">
+<meta property="og:description" content="Provisions, camp &amp; cabin supplies, gifts, and Lake Superior makers — a real general store on Ashland's Main Street.">
+<meta property="og:image" content="share.jpg" data-fill="og_image">
+<link rel="stylesheet" href="../shared/tokens.css">
+<!-- Store JSON-LD. Values below mirror data-fill keys noted in FILL-MAP.md; the intake-merge
+     script updates these alongside the visible NAP. OFFICE variant swaps @type to
+     "ProfessionalService" (see FILL-MAP "OFFICE variant differences"). -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Store",
+  "name": "Chequamegon Mercantile",
+  "description": "Independent general store and mercantile in Ashland, Wisconsin — provisions, camp and cabin supplies, gifts, and goods from Lake Superior makers.",
+  "telephone": "+1-715-555-0187",
+  "email": "hello@chequamegonmercantile.com",
+  "url": "https://chequamegonmercantile.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "312 Main Street West",
+    "addressLocality": "Ashland",
+    "addressRegion": "WI",
+    "postalCode": "54806",
+    "addressCountry": "US"
+  },
+  "openingHours": "Mo-Sa 09:00-18:00, Su 10:00-16:00",
+  "priceRange": "$$"
+}
+</script>
+<style>
+:root{--color-primary:#5B4A68;--color-primary-dark:#493B53}
+/* T4 template-specific components only — the kit lives in ../shared/tokens.css */
+.header-bar{display:flex;align-items:center;gap:var(--space-4)}
+.wordmark{font-weight:700;font-size:var(--text-lg);color:var(--color-text);text-decoration:none;padding-block:var(--space-3);margin-right:auto}
+.site-nav ul{display:flex;gap:var(--space-2);list-style:none;margin:0;padding:0}
+.site-nav a{display:inline-block;padding:var(--space-2) var(--space-3);text-decoration:none;color:var(--color-text);border-bottom:3px solid transparent}
+.site-nav a[aria-current="page"]{font-weight:700;color:var(--color-primary);border-bottom-color:var(--color-primary)}
+.nav-toggle{display:none;align-items:center;gap:var(--space-2);min-height:44px;padding:var(--space-2) var(--space-3);font:inherit;font-weight:600;color:var(--color-text);background:none;border:1px solid var(--color-border);border-radius:var(--radius);cursor:pointer}
+@media (max-width:47.99rem){
+  .nav-toggle{display:inline-flex}
+  .site-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--color-bg);border-bottom:1px solid var(--color-border);box-shadow:0 8px 16px rgb(0 0 0 / .08)}
+  .site-nav.is-open{display:block}
+  .site-nav ul{flex-direction:column;padding:var(--space-2)}
+  .site-nav a{display:block;padding:var(--space-3)}
+}
+.hero{display:grid;gap:var(--space-6);align-items:center}
+@media (min-width:48rem){.hero{grid-template-columns:1.1fr 1fr}}
+.hours-strip{display:flex;flex-wrap:wrap;gap:var(--space-3) var(--space-5);align-items:center;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius);padding:var(--space-4) var(--space-5);margin-top:var(--space-5)}
+.hours-strip .sep{color:var(--color-border)}
+figure{margin:0}
+figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var(--space-2)}
+.ph{display:block;width:100%;height:auto;border:1px solid var(--color-border);border-radius:var(--radius)}
+.review blockquote{margin:0 0 var(--space-3)}
+.review cite{font-style:normal;font-weight:600}
+.footer-grid{display:grid;gap:var(--space-6);grid-template-columns:repeat(auto-fit,minmax(13rem,1fr))}
+.footer-h{font-size:var(--text-base);margin-bottom:var(--space-3)}
+.site-footer a{color:var(--color-text)}
+.site-footer ul{list-style:none;margin:0;padding:0}
+.site-footer li{margin-bottom:var(--space-2)}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container header-bar">
+    <a class="wordmark" href="./" data-fill="business_name">Chequamegon Mercantile</a>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="./" aria-current="page">Home</a></li>
+        <li><a href="gallery/">What we carry</a></li>
+        <li><a href="story/">Story</a></li>
+        <li><a href="visit/">Visit</a></li>
+        <li><a href="contact/">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn--primary" href="visit/">Visit us</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M2 4h16M2 10h16M2 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      Menu
+    </button>
+  </div>
+</header>
+<main id="main">
+  <!-- HERO + HOURS STRIP -->
+  <section class="section">
+    <div class="container hero">
+      <div>
+        <h1 data-fill="h1_home">A proper general store on the shore of Lake Superior</h1>
+        <p data-fill="tagline">Chequamegon Mercantile has stocked the useful, the local, and the hard-to-find on Ashland's Main Street since the pantry ran on root cellars. Provisions, camp and cabin supplies, gifts worth giving, and shelves full of goods made by your neighbors.</p>
+        <p><a class="btn btn--primary" href="visit/">Visit us</a>
+        <a class="btn btn--secondary" href="gallery/">See what we carry</a></p>
+      </div>
+      <svg class="ph" role="img" aria-label="Photo: the Chequamegon Mercantile storefront and interior on Main Street" width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg"><rect width="800" height="600" fill="#E7ECE8"/><rect x="12" y="12" width="776" height="576" fill="none" stroke="#C5CFC8" stroke-width="2" stroke-dasharray="8 8"/><text x="400" y="288" text-anchor="middle" font-family="system-ui,sans-serif" font-size="30" fill="#444E47">Photo placeholder</text><text x="400" y="330" text-anchor="middle" font-family="system-ui,sans-serif" font-size="22" fill="#444E47">Hero — storefront or interior</text></svg>
+    </div>
+    <div class="container">
+      <div class="hours-strip">
+        <span><strong data-fill="todays_hours">Open today 9am–6pm</strong></span>
+        <span class="sep" aria-hidden="true">·</span>
+        <span data-fill="address">312 Main Street West, Ashland, WI 54806</span>
+        <span class="sep" aria-hidden="true">·</span>
+        <span><a href="https://maps.google.com/?q=Chequamegon+Mercantile+Ashland+WI" data-fill="directions_url">Get directions</a></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE CARRY -->
+  <section class="section section--tinted">
+    <div class="container">
+      <h2>What we carry</h2>
+      <p class="prose">Four corners of the store, roughly. We restock what sells and chase down what you ask for — if we don't have it, there's a good chance we can get it.</p>
+      <div class="grid-cards">
+        <div class="card">
+          <h3 data-fill="category_1_name">Provisions &amp; pantry</h3>
+          <p data-fill="category_1_desc">Coffee roasted up the road, Wisconsin cheese and sausage, maple syrup, jam, dry goods, and the bag of flour you forgot until you were already home.</p>
+          <a href="gallery/">Browse provisions</a>
+        </div>
+        <div class="card">
+          <h3 data-fill="category_2_name">Camp &amp; cabin</h3>
+          <p data-fill="category_2_desc">Enamelware, wool socks, fire starters, bug dope, headlamps, and the odd hardware bit that keeps a north-woods cabin standing another season.</p>
+          <a href="gallery/">Browse camp &amp; cabin</a>
+        </div>
+        <div class="card">
+          <h3 data-fill="category_3_name">Local makers</h3>
+          <p data-fill="category_3_desc">Pottery, candles, soap, prints, and small-batch goods from artists and producers around Chequamegon Bay. New faces on the shelf most months.</p>
+          <a href="gallery/">Browse local makers</a>
+        </div>
+        <div class="card">
+          <h3 data-fill="category_4_name">Gifts &amp; sundries</h3>
+          <p data-fill="category_4_desc">Cards, books about the lake, kids' odds and ends, and Lake Superior keepsakes that beat a gas-station magnet by a country mile.</p>
+          <a href="gallery/">Browse gifts &amp; sundries</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAKER / STORY BLOCK -->
+  <section class="section">
+    <div class="container hero">
+      <svg class="ph" role="img" aria-label="Photo: a local maker's goods on the mercantile shelves" width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg"><rect width="800" height="600" fill="#E7ECE8"/><rect x="12" y="12" width="776" height="576" fill="none" stroke="#C5CFC8" stroke-width="2" stroke-dasharray="8 8"/><text x="400" y="288" text-anchor="middle" font-family="system-ui,sans-serif" font-size="30" fill="#444E47">Photo placeholder</text><text x="400" y="330" text-anchor="middle" font-family="system-ui,sans-serif" font-size="22" fill="#444E47">Local maker / shelf detail</text></svg>
+      <div>
+        <h2>Made around the bay</h2>
+        <p data-fill="maker_block">More than sixty local makers share our shelves — the potter in Washburn, the soap-maker outside Bayfield, the fellow who ties flies through the long winter. When you buy their work here, the money stays in the county and the maker hears about it. That's the whole idea.</p>
+        <p><a class="btn btn--secondary" href="story/">Read the shop's story</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section section--tinted" aria-label="What neighbors say">
+    <div class="container">
+      <h2>What folks say</h2>
+      <div class="grid-cards">
+        <div class="card review">
+          <blockquote data-fill="review_1_quote">"The only place in town that had exactly the odd little enamel pot my mother used to have. They dug it out from the back and wrapped it up like it was china."</blockquote>
+          <cite><span data-fill="review_1_name">Marge D.</span>, <span data-fill="review_1_town">Ashland</span></cite>
+        </div>
+        <div class="card review">
+          <blockquote data-fill="review_2_quote">"We stop in every trip up north to stock the cabin. Good coffee, good socks, and somebody who actually knows where the trailhead is."</blockquote>
+          <cite><span data-fill="review_2_name">Tom &amp; Lisa K.</span>, <span data-fill="review_2_town">Washburn</span></cite>
+        </div>
+        <div class="card review">
+          <blockquote data-fill="review_3_quote">"I sell my candles here and they treat my little batch like it matters. Half my customers found me on this shelf."</blockquote>
+          <cite><span data-fill="review_3_name">Anna P.</span>, <span data-fill="review_3_town">Bayfield</span></cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="section cta-band">
+    <div class="container">
+      <h2>Come see us</h2>
+      <p>The shelves change with the season and the makers change with them. Best way to know what's in is to walk through the door.</p>
+      <a class="btn btn--primary" href="https://maps.google.com/?q=Chequamegon+Mercantile+Ashland+WI" data-fill="directions_url">Get directions</a>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <h2 class="footer-h" data-fill="business_name">Chequamegon Mercantile</h2>
+      <p><span data-fill="address">312 Main Street West, Ashland, WI 54806</span><br>
+      <a href="tel:+17155550187" data-fill="phone">(715) 555-0187</a><br>
+      <a href="mailto:hello@chequamegonmercantile.com" data-fill="email">hello@chequamegonmercantile.com</a></p>
+    </div>
+    <nav aria-label="Footer">
+      <h2 class="footer-h">Pages</h2>
+      <ul>
+        <li><a href="./">Home</a></li>
+        <li><a href="gallery/">What we carry</a></li>
+        <li><a href="story/">Story</a></li>
+        <li><a href="visit/">Visit</a></li>
+        <li><a href="contact/">Contact</a></li>
+      </ul>
+    </nav>
+    <div>
+      <h2 class="footer-h">Hours</h2>
+      <p data-fill="hours">Monday–Saturday, 9am–6pm<br>Sunday, 10am–4pm</p>
+      <p><a href="https://facebook.com/" data-fill="facebook_url">Find us on Facebook</a></p>
+    </div>
+    <div>
+      <h2 class="footer-h">Stop in</h2>
+      <p><a class="btn btn--primary" href="visit/">Visit us</a></p>
+      <p><a href="privacy/">Privacy</a></p>
+    </div>
+  </div>
+  <div class="container" style="margin-top:var(--space-6)">
+    <p>&copy; 2026 <span data-fill="business_name">Chequamegon Mercantile</span> · Site by <a href="https://buildwithbaker.io">Build with Baker</a></p>
+  </div>
+</footer>
+<script>
+(function(){
+  var t=document.querySelector('.nav-toggle'),n=document.getElementById('site-nav');
+  if(!t||!n)return;
+  t.addEventListener('click',function(){
+    var open=t.getAttribute('aria-expanded')==='true';
+    t.setAttribute('aria-expanded',String(!open));
+    n.classList.toggle('is-open',!open);
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&t.getAttribute('aria-expanded')==='true'){
+      t.setAttribute('aria-expanded','false');n.classList.remove('is-open');t.focus();
+    }
+  });
+})();
+</script>
+</body>
+</html>

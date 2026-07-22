@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact Us — Gitche Gumee Diner, Ashland WI</title>
+<meta name="description" content="Questions, big groups, or a catering order? Call Gitche Gumee Diner at (715) 555-0126 or send us a note. Downtown Ashland, WI — no reservations needed.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact Us — Gitche Gumee Diner">
+<meta property="og:description" content="Call or send a note. Downtown Ashland, WI — first come, first served, big groups welcome.">
+<meta property="og:image" content="../share.jpg" data-fill="og_image">
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+:root{--color-primary:#B4552D;--color-primary-dark:#904424}
+/* T2 template-specific components only — the kit lives in ../../shared/tokens.css */
+.header-bar{display:flex;align-items:center;gap:var(--space-4)}
+.wordmark{font-weight:700;font-size:var(--text-lg);color:var(--color-text);text-decoration:none;padding-block:var(--space-3);margin-right:auto}
+.site-nav ul{display:flex;gap:var(--space-2);list-style:none;margin:0;padding:0}
+.site-nav a{display:inline-block;padding:var(--space-2) var(--space-3);text-decoration:none;color:var(--color-text);border-bottom:3px solid transparent}
+.site-nav a[aria-current="page"]{font-weight:700;color:var(--color-primary);border-bottom-color:var(--color-primary)}
+.nav-toggle{display:none;align-items:center;gap:var(--space-2);min-height:44px;padding:var(--space-2) var(--space-3);font:inherit;font-weight:600;color:var(--color-text);background:none;border:1px solid var(--color-border);border-radius:var(--radius);cursor:pointer}
+@media (max-width:47.99rem){
+  .nav-toggle{display:inline-flex}
+  .site-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--color-bg);border-bottom:1px solid var(--color-border);box-shadow:0 8px 16px rgb(0 0 0 / .08)}
+  .site-nav.is-open{display:block}
+  .site-nav ul{flex-direction:column;padding:var(--space-2)}
+  .site-nav a{display:block;padding:var(--space-3)}
+}
+.contact-layout{display:grid;gap:var(--space-6);align-items:start}
+@media (min-width:60rem){.contact-layout{grid-template-columns:1.6fr 1fr}}
+.phone-big{display:inline-block;font-size:var(--text-3xl);font-weight:700;color:var(--color-primary);text-decoration:none;padding:var(--space-2) 0}
+.click-trigger{font-weight:600;color:var(--color-text)}
+.field-error{display:block;color:var(--color-error);font-size:var(--text-sm);margin-top:var(--space-1)}
+.callout{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius);padding:var(--space-5)}
+.callout h2{font-size:var(--text-lg)}
+.footer-grid{display:grid;gap:var(--space-6);grid-template-columns:repeat(auto-fit,minmax(13rem,1fr))}
+.footer-h{font-size:var(--text-base);margin-bottom:var(--space-3)}
+.site-footer a{color:var(--color-text)}
+.site-footer ul{list-style:none;margin:0;padding:0}
+.site-footer li{margin-bottom:var(--space-2)}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container header-bar">
+    <a class="wordmark" href="../" data-fill="business_name">Gitche Gumee Diner</a>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="../">Home</a></li>
+        <li><a href="../menu/">Menu</a></li>
+        <li><a href="../about/">About</a></li>
+        <li><a href="../visit/">Visit</a></li>
+        <li><a href="./" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn--primary" href="../menu/">See the menu</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M2 4h16M2 10h16M2 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      Menu
+    </button>
+  </div>
+</header>
+<main id="main">
+  <section class="section">
+    <div class="container">
+      <h1>Get in touch</h1>
+      <p class="prose">Fastest way to reach us is to call — someone's usually near the register. For a big group, a catering order, or a lost-and-found coffee thermos, send a note and we'll get back to you.</p>
+      <p><a class="phone-big" href="tel:+17155550126" data-fill="phone">(715) 555-0126</a></p>
+      <p class="prose" data-fill="reservation_policy"><strong>No reservations needed</strong> — we're first come, first served, and the counter moves fast. Bringing a group of eight or more? Give us a call ahead and we'll make sure there's room.</p>
+    </div>
+  </section>
+  <section class="section section--tinted">
+    <div class="container contact-layout">
+      <div class="card">
+        <h2>Send us a note</h2>
+        <p class="click-trigger">Takes about a minute — we usually reply the same day.</p>
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" data-fill="formspree_endpoint">
+          <div class="field">
+            <label for="f-name">Your name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="err-name">
+            <span class="field-error" id="err-name"></span>
+          </div>
+          <div class="field">
+            <label for="f-phone">Phone number</label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel" required aria-describedby="err-phone">
+            <span class="field-error" id="err-phone"></span>
+          </div>
+          <div class="field">
+            <label for="f-email">Email (optional)</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" aria-describedby="err-email">
+            <span class="field-error" id="err-email"></span>
+          </div>
+          <div class="field">
+            <label for="f-message">What can we do for you?</label>
+            <textarea id="f-message" name="message" rows="5" required aria-describedby="err-message" placeholder="Example: we'd like to bring a group of 12 in on Saturday around 9am — is that doable?"></textarea>
+            <span class="field-error" id="err-message"></span>
+          </div>
+          <button class="btn btn--primary" type="submit">Send us your note</button>
+        </form>
+      </div>
+      <aside class="callout stack" aria-label="Diner details">
+        <h2>Or just stop in</h2>
+        <p><a class="phone-big" href="tel:+17155550126" data-fill="phone">(715) 555-0126</a></p>
+        <p><strong>Hours:</strong><br><span data-fill="hours">Monday–Saturday, 6am–2pm<br>Sunday, 7am–1pm</span></p>
+        <p><strong>Address:</strong><br><span data-fill="address">118 Main Street West, Ashland, WI 54806</span></p>
+        <p><strong>Email:</strong><br><a href="mailto:hello@gitchegumeediner.com" data-fill="email">hello@gitchegumeediner.com</a></p>
+        <p><strong>Takeout &amp; delivery:</strong><br><a href="tel:+17155550126" data-fill="takeout_url">Call for takeout</a> · <a href="https://www.doordash.com/" data-fill="delivery_url">Order delivery</a></p>
+      </aside>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <h2 class="footer-h" data-fill="business_name">Gitche Gumee Diner</h2>
+      <p><span data-fill="address">118 Main Street West, Ashland, WI 54806</span><br>
+      <a href="tel:+17155550126" data-fill="phone">(715) 555-0126</a><br>
+      <a href="mailto:hello@gitchegumeediner.com" data-fill="email">hello@gitchegumeediner.com</a></p>
+    </div>
+    <nav aria-label="Footer">
+      <h2 class="footer-h">Pages</h2>
+      <ul>
+        <li><a href="../">Home</a></li>
+        <li><a href="../menu/">Menu</a></li>
+        <li><a href="../about/">About</a></li>
+        <li><a href="../visit/">Visit</a></li>
+        <li><a href="./">Contact</a></li>
+      </ul>
+    </nav>
+    <div>
+      <h2 class="footer-h">Hours</h2>
+      <p data-fill="hours">Monday–Saturday, 6am–2pm<br>Sunday, 7am–1pm</p>
+      <p><a href="https://facebook.com/" data-fill="facebook_url">Find us on Facebook</a></p>
+    </div>
+    <div>
+      <h2 class="footer-h">Come see us</h2>
+      <p><a class="btn btn--primary" href="../menu/">See the menu</a></p>
+      <p><a href="../privacy/">Privacy</a></p>
+    </div>
+  </div>
+  <div class="container" style="margin-top:var(--space-6)">
+    <p>&copy; 2026 <span data-fill="business_name">Gitche Gumee Diner</span> · Site by <a href="https://buildwithbaker.io">Build with Baker</a></p>
+  </div>
+</footer>
+<script>
+(function(){
+  var t=document.querySelector('.nav-toggle'),n=document.getElementById('site-nav');
+  if(!t||!n)return;
+  t.addEventListener('click',function(){
+    var open=t.getAttribute('aria-expanded')==='true';
+    t.setAttribute('aria-expanded',String(!open));
+    n.classList.toggle('is-open',!open);
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&t.getAttribute('aria-expanded')==='true'){
+      t.setAttribute('aria-expanded','false');n.classList.remove('is-open');t.focus();
+    }
+  });
+})();
+</script>
+</body>
+</html>

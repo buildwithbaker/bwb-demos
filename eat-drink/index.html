@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gitche Gumee Diner — Scratch Breakfast &amp; Lunch, Ashland WI</title>
+<meta name="description" content="Classic diner on the south shore of Lake Superior. Scratch cooking, big portions, hot coffee. Breakfast all day and a Friday fish fry in downtown Ashland, WI.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gitche Gumee Diner — Scratch Breakfast &amp; Lunch, Ashland WI">
+<meta property="og:description" content="Scratch cooking and big portions on the shore of Lake Superior. Breakfast all day in downtown Ashland.">
+<meta property="og:image" content="share.jpg" data-fill="og_image">
+<link rel="stylesheet" href="../shared/tokens.css">
+<!-- Restaurant JSON-LD. Values below mirror data-fill keys on the visible NAP; the intake-merge
+     script updates these alongside business_name, phone, email, address, and hours (see FILL-MAP.md). -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Gitche Gumee Diner",
+  "description": "Classic scratch-cooking diner serving breakfast and lunch on the south shore of Lake Superior in Ashland, Wisconsin.",
+  "telephone": "+1-715-555-0126",
+  "email": "hello@gitchegumeediner.com",
+  "url": "https://gitchegumeediner.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "118 Main Street West",
+    "addressLocality": "Ashland",
+    "addressRegion": "WI",
+    "postalCode": "54806",
+    "addressCountry": "US"
+  },
+  "servesCuisine": ["American", "Diner", "Breakfast"],
+  "openingHours": ["Mo-Sa 06:00-14:00", "Su 07:00-13:00"],
+  "priceRange": "$$",
+  "hasMenu": "https://gitchegumeediner.com/menu/"
+}
+</script>
+<style>
+:root{--color-primary:#B4552D;--color-primary-dark:#904424}
+/* T2 template-specific components only — the kit lives in ../shared/tokens.css */
+.header-bar{display:flex;align-items:center;gap:var(--space-4)}
+.wordmark{font-weight:700;font-size:var(--text-lg);color:var(--color-text);text-decoration:none;padding-block:var(--space-3);margin-right:auto}
+.site-nav ul{display:flex;gap:var(--space-2);list-style:none;margin:0;padding:0}
+.site-nav a{display:inline-block;padding:var(--space-2) var(--space-3);text-decoration:none;color:var(--color-text);border-bottom:3px solid transparent}
+.site-nav a[aria-current="page"]{font-weight:700;color:var(--color-primary);border-bottom-color:var(--color-primary)}
+.nav-toggle{display:none;align-items:center;gap:var(--space-2);min-height:44px;padding:var(--space-2) var(--space-3);font:inherit;font-weight:600;color:var(--color-text);background:none;border:1px solid var(--color-border);border-radius:var(--radius);cursor:pointer}
+@media (max-width:47.99rem){
+  .nav-toggle{display:inline-flex}
+  .site-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--color-bg);border-bottom:1px solid var(--color-border);box-shadow:0 8px 16px rgb(0 0 0 / .08)}
+  .site-nav.is-open{display:block}
+  .site-nav ul{flex-direction:column;padding:var(--space-2)}
+  .site-nav a{display:block;padding:var(--space-3)}
+}
+.hero{display:grid;gap:var(--space-6);align-items:center}
+@media (min-width:48rem){.hero{grid-template-columns:1.1fr 1fr}}
+.ph{display:block;width:100%;height:auto;border:1px solid var(--color-border);border-radius:var(--radius)}
+figure{margin:0}
+figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var(--space-2)}
+.info-strip{display:grid;gap:var(--space-5);grid-template-columns:repeat(auto-fit,minmax(13rem,1fr))}
+.info-strip .info-label{display:block;font-weight:700;color:var(--color-primary);margin-bottom:var(--space-1)}
+.info-strip p{margin:0}
+.price{font-weight:700;color:var(--color-primary)}
+.review blockquote{margin:0 0 var(--space-3)}
+.review cite{font-style:normal;font-weight:600}
+.footer-grid{display:grid;gap:var(--space-6);grid-template-columns:repeat(auto-fit,minmax(13rem,1fr))}
+.footer-h{font-size:var(--text-base);margin-bottom:var(--space-3)}
+.site-footer a{color:var(--color-text)}
+.site-footer ul{list-style:none;margin:0;padding:0}
+.site-footer li{margin-bottom:var(--space-2)}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container header-bar">
+    <a class="wordmark" href="./" data-fill="business_name">Gitche Gumee Diner</a>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="./" aria-current="page">Home</a></li>
+        <li><a href="menu/">Menu</a></li>
+        <li><a href="about/">About</a></li>
+        <li><a href="visit/">Visit</a></li>
+        <li><a href="contact/">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn--primary" href="menu/">See the menu</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M2 4h16M2 10h16M2 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      Menu
+    </button>
+  </div>
+</header>
+<main id="main">
+  <!-- HERO -->
+  <section class="section">
+    <div class="container hero">
+      <div>
+        <h1 data-fill="h1_home">Scratch cooking and big portions on the shore of the big lake</h1>
+        <p data-fill="tagline">We're an old-fashioned diner in downtown Ashland — real hashbrowns off the flat-top, pie baked that morning, and a coffee cup that never runs dry. Breakfast served all day, every day.</p>
+        <p><a class="btn btn--primary" href="menu/">See the menu</a>
+        <a class="btn btn--secondary" href="visit/">Hours &amp; directions</a></p>
+      </div>
+      <svg class="ph" role="img" aria-label="Photo: a loaded diner breakfast plate with eggs, hashbrowns, and pancakes on the counter" width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg"><rect width="800" height="600" fill="#E7ECE8"/><rect x="12" y="12" width="776" height="576" fill="none" stroke="#C5CFC8" stroke-width="2" stroke-dasharray="8 8"/><text x="400" y="288" text-anchor="middle" font-family="system-ui,sans-serif" font-size="30" fill="#444E47">Photo placeholder</text><text x="400" y="330" text-anchor="middle" font-family="system-ui,sans-serif" font-size="22" fill="#444E47">Hero — signature breakfast plate</text></svg>
+    </div>
+  </section>
+
+  <!-- HOURS / LOCATION STRIP (above the fold — the #1 thing diners check) -->
+  <section class="section section--tinted" aria-label="Hours and location">
+    <div class="container info-strip">
+      <p><span class="info-label">Kitchen hours</span><span data-fill="todays_hours">Mon–Sat 6am–2pm · Sun 7am–1pm</span></p>
+      <p><span class="info-label">Find us</span><span data-fill="address">118 Main Street West, Ashland, WI 54806</span></p>
+      <p><span class="info-label">Call ahead</span><a href="tel:+17155550126" data-fill="phone">(715) 555-0126</a></p>
+      <p><span class="info-label">Directions</span><a href="https://www.google.com/maps/dir/?api=1&amp;destination=118+Main+Street+West+Ashland+WI+54806" data-fill="directions_url">Get directions →</a></p>
+    </div>
+  </section>
+
+  <!-- 3 SIGNATURE ITEMS -->
+  <section class="section">
+    <div class="container">
+      <h2>What we're known for</h2>
+      <div class="grid-cards">
+        <div class="card">
+          <h3 data-fill="signature_1_name">The Iron Range Skillet</h3>
+          <p data-fill="signature_1_desc">Hashbrowns, two eggs, sausage, peppers and onions under a blanket of scratch sausage gravy.</p>
+          <p class="price" data-fill="signature_1_price">$11.95</p>
+        </div>
+        <div class="card">
+          <h3 data-fill="signature_2_name">Whitefish &amp; Eggs</h3>
+          <p data-fill="signature_2_desc">Lake Superior whitefish, lightly floured and pan-fried, with two eggs and thick-cut toast.</p>
+          <p class="price" data-fill="signature_2_price">$13.50</p>
+        </div>
+        <div class="card">
+          <h3 data-fill="signature_3_name">Big Lake Pancakes</h3>
+          <p data-fill="signature_3_desc">Three buttermilk cakes the size of hubcaps, with real Wisconsin butter and warm syrup.</p>
+          <p class="price" data-fill="signature_3_price">$8.95</p>
+        </div>
+      </div>
+      <p><a href="menu/">See the whole menu →</a></p>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section section--tinted" aria-label="What regulars say">
+    <div class="container">
+      <h2>What the regulars say</h2>
+      <div class="grid-cards">
+        <div class="card review">
+          <blockquote data-fill="review_1_quote">"Best breakfast on the South Shore, hands down. The whitefish and eggs is worth the drive from Washburn."</blockquote>
+          <cite><span data-fill="review_1_name">Karen L.</span>, <span data-fill="review_1_town">Washburn</span></cite>
+        </div>
+        <div class="card review">
+          <blockquote data-fill="review_2_quote">"Coffee's always hot, the pie's always fresh, and Ruth knows my order before I sit down. This is my kind of place."</blockquote>
+          <cite><span data-fill="review_2_name">Dave M.</span>, <span data-fill="review_2_town">Ashland</span></cite>
+        </div>
+        <div class="card review">
+          <blockquote data-fill="review_3_quote">"Portions are honest and so are the prices. We bring the grandkids every Sunday after church."</blockquote>
+          <cite><span data-fill="review_3_name">Linda &amp; Gary S.</span>, <span data-fill="review_3_town">Bayfield</span></cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECIALS BAND (care-plan feeder — updated weekly) -->
+  <section class="section">
+    <div class="container">
+      <h2>This week's specials</h2>
+      <p class="prose" data-fill="specials_note">This week: cornmeal-crusted walleye sandwich with a cup of wild rice soup, $12.95. And there's fresh pie every day — ask your server what came out of the oven this morning.</p>
+      <p class="prose"><strong>Specials change every week.</strong> We post the new board each Monday, so there's always a reason to come back.</p>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="section cta-band">
+    <div class="container">
+      <h2>Come hungry</h2>
+      <p>We're right downtown, easy to find, and there's usually a stool at the counter. Bring your appetite.</p>
+      <a class="btn btn--primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=118+Main+Street+West+Ashland+WI+54806" data-fill="directions_url">Get directions</a>
+      <a class="btn btn--secondary" href="menu/" style="color:#fff;border-color:#fff">See the menu</a>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <h2 class="footer-h" data-fill="business_name">Gitche Gumee Diner</h2>
+      <p><span data-fill="address">118 Main Street West, Ashland, WI 54806</span><br>
+      <a href="tel:+17155550126" data-fill="phone">(715) 555-0126</a><br>
+      <a href="mailto:hello@gitchegumeediner.com" data-fill="email">hello@gitchegumeediner.com</a></p>
+    </div>
+    <nav aria-label="Footer">
+      <h2 class="footer-h">Pages</h2>
+      <ul>
+        <li><a href="./">Home</a></li>
+        <li><a href="menu/">Menu</a></li>
+        <li><a href="about/">About</a></li>
+        <li><a href="visit/">Visit</a></li>
+        <li><a href="contact/">Contact</a></li>
+      </ul>
+    </nav>
+    <div>
+      <h2 class="footer-h">Hours</h2>
+      <p data-fill="hours">Monday–Saturday, 6am–2pm<br>Sunday, 7am–1pm</p>
+      <p><a href="https://facebook.com/" data-fill="facebook_url">Find us on Facebook</a></p>
+    </div>
+    <div>
+      <h2 class="footer-h">Come see us</h2>
+      <p><a class="btn btn--primary" href="menu/">See the menu</a></p>
+      <p><a href="privacy/">Privacy</a></p>
+    </div>
+  </div>
+  <div class="container" style="margin-top:var(--space-6)">
+    <p>&copy; 2026 <span data-fill="business_name">Gitche Gumee Diner</span> · Site by <a href="https://buildwithbaker.io">Build with Baker</a></p>
+  </div>
+</footer>
+<script>
+(function(){
+  var t=document.querySelector('.nav-toggle'),n=document.getElementById('site-nav');
+  if(!t||!n)return;
+  t.addEventListener('click',function(){
+    var open=t.getAttribute('aria-expanded')==='true';
+    t.setAttribute('aria-expanded',String(!open));
+    n.classList.toggle('is-open',!open);
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&t.getAttribute('aria-expanded')==='true'){
+      t.setAttribute('aria-expanded','false');n.classList.remove('is-open');t.focus();
+    }
+  });
+})();
+</script>
+</body>
+</html>
