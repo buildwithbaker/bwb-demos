@@ -11,6 +11,9 @@
 <meta property="og:description" content="Scratch cooking and big portions on the shore of Lake Superior. Breakfast all day in downtown Ashland.">
 <meta property="og:image" content="share.jpg" data-fill="og_image">
 <link rel="stylesheet" href="../shared/tokens.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400;1,600&display=swap">
 <!-- Restaurant JSON-LD. Values below mirror data-fill keys on the visible NAP; the intake-merge
      script updates these alongside business_name, phone, email, address, and hours (see FILL-MAP.md). -->
 <script type="application/ld+json">
@@ -37,37 +40,111 @@
 }
 </script>
 <style>
-:root{--color-primary:#B4552D;--color-primary-dark:#904424}
-/* T2 template-specific components only — the kit lives in ../shared/tokens.css */
-.header-bar{display:flex;align-items:center;gap:var(--space-4)}
-.wordmark{font-weight:700;font-size:var(--text-lg);color:var(--color-text);text-decoration:none;padding-block:var(--space-3);margin-right:auto}
-.site-nav ul{display:flex;gap:var(--space-2);list-style:none;margin:0;padding:0}
-.site-nav a{display:inline-block;padding:var(--space-2) var(--space-3);text-decoration:none;color:var(--color-text);border-bottom:3px solid transparent}
-.site-nav a[aria-current="page"]{font-weight:700;color:var(--color-primary);border-bottom-color:var(--color-primary)}
-.nav-toggle{display:none;align-items:center;gap:var(--space-2);min-height:44px;padding:var(--space-2) var(--space-3);font:inherit;font-weight:600;color:var(--color-text);background:none;border:1px solid var(--color-border);border-radius:var(--radius);cursor:pointer}
+/* T2 "Warm Editorial" visual system — v2.0 | overrides the shared kit per template.
+   Kit (spacing / a11y / form / btn primitives) still lives in ../shared/tokens.css. */
+:root{
+  --color-primary:#A34A26;--color-primary-dark:#7E3A1E;
+  --color-bg:#FAF6EF;--color-surface:#F1E8D8;
+  --color-text:#2A211B;--color-text-muted:#5C4F45;
+  --color-border:#DFD3BE;
+  --t2-ink:#2A211B;--t2-cream:#FAF6EF;--t2-terra-lt:#E5A075;
+  --radius:2px;
+}
+body{font-family:Georgia,'Times New Roman',serif}
+h1,h2,h3,.wordmark,.item-name,.price,.item-price{font-family:'Fraunces',Georgia,serif}
+h2{font-size:var(--text-3xl);font-weight:600}
+.btn{border-radius:2px;letter-spacing:.02em;font-family:system-ui,sans-serif}
+
+/* HEADER — centered, stacked, double rule (bistro masthead) */
+.site-header{position:static;background:var(--color-bg);border-bottom:double 4px var(--color-border)}
+.header-bar{display:flex;flex-direction:column;align-items:center;gap:var(--space-2);padding-block:var(--space-4) var(--space-3);position:relative}
+.wordmark{font-weight:600;font-size:var(--text-3xl);color:var(--color-text);text-decoration:none;line-height:1.1;text-align:center;margin:0;padding:0}
+.site-nav ul{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--space-1) var(--space-3);list-style:none;margin:0;padding:0}
+.site-nav a{display:inline-block;padding:var(--space-2) var(--space-2);text-decoration:none;color:var(--color-text);font-family:system-ui,sans-serif;font-size:.8125rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;border-bottom:2px solid transparent}
+.site-nav a:hover{color:var(--color-primary)}
+.site-nav a[aria-current="page"]{color:var(--color-primary);border-bottom-color:var(--color-primary)}
+.nav-toggle{display:none;align-items:center;gap:var(--space-2);min-height:44px;padding:var(--space-2) var(--space-3);font:inherit;font-family:system-ui,sans-serif;font-weight:600;color:var(--color-text);background:none;border:1px solid var(--color-border);border-radius:2px;cursor:pointer}
 @media (max-width:47.99rem){
-  .nav-toggle{display:inline-flex}
-  .site-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--color-bg);border-bottom:1px solid var(--color-border);box-shadow:0 8px 16px rgb(0 0 0 / .08)}
+  .nav-toggle{display:inline-flex;position:absolute;right:0;top:var(--space-4)}
+  .header-bar{align-items:flex-start;text-align:left}
+  .wordmark{text-align:left;font-size:var(--text-2xl);max-width:calc(100% - 6rem)}
+  .site-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--color-bg);border-bottom:1px solid var(--color-border);box-shadow:0 8px 16px rgb(42 33 27 / .12);z-index:10}
   .site-nav.is-open{display:block}
   .site-nav ul{flex-direction:column;padding:var(--space-2)}
-  .site-nav a{display:block;padding:var(--space-3)}
+  .site-nav a{display:block;padding:var(--space-3);text-align:center}
 }
-.hero{display:grid;gap:var(--space-6);align-items:center}
-@media (min-width:48rem){.hero{grid-template-columns:1.1fr 1fr}}
-.ph{display:block;width:100%;height:auto;border:1px solid var(--color-border);border-radius:var(--radius)}
-figure{margin:0}
-figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var(--space-2)}
-.info-strip{display:grid;gap:var(--space-5);grid-template-columns:repeat(auto-fit,minmax(13rem,1fr))}
-.info-strip .info-label{display:block;font-weight:700;color:var(--color-primary);margin-bottom:var(--space-1)}
-.info-strip p{margin:0}
-.price{font-weight:700;color:var(--color-primary)}
-.review blockquote{margin:0 0 var(--space-3)}
-.review cite{font-style:normal;font-weight:600}
-.footer-grid{display:grid;gap:var(--space-6);grid-template-columns:repeat(auto-fit,minmax(13rem,1fr))}
-.footer-h{font-size:var(--text-base);margin-bottom:var(--space-3)}
-.site-footer a{color:var(--color-text)}
+
+/* HERO — full-bleed photo with overlay copy */
+.hero-full{position:relative;isolation:isolate;min-height:72vh;display:grid;place-items:center;text-align:center;padding-block:var(--space-9)}
+.hero-full .hero-bg{position:absolute;inset:0;width:100%;height:100%;z-index:-2;border:none;border-radius:0}
+.hero-full::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(rgb(26 18 12 / .58),rgb(26 18 12 / .74))}
+.hero-copy{max-width:44rem;padding-inline:var(--space-4)}
+.hero-kicker{font-family:system-ui,sans-serif;font-size:.8125rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--t2-terra-lt);margin-bottom:var(--space-3)}
+.hero-full h1{color:#FFF8EE;font-weight:600;font-size:clamp(2.25rem,1.4rem+3.2vw,3.75rem)}
+.hero-full p{color:#F3E9DA;font-size:var(--text-lg)}
+.hero-full .btn--secondary{color:#FFF8EE;border-color:#FFF8EE;background:transparent}
+.hero-full a:focus-visible{outline-color:var(--t2-terra-lt)}
+
+/* DARK INFO BAND — hours / address / phone */
+.info-band{background:var(--t2-ink);color:#F3E9DA;padding-block:var(--space-6)}
+.info-band .info-strip{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--space-5) var(--space-7);text-align:center}
+.info-band .info-label{display:block;font-family:system-ui,sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--t2-terra-lt);margin-bottom:var(--space-1)}
+.info-band p{margin:0}
+.info-band a{color:#FFF8EE}
+.info-band a:focus-visible{outline-color:var(--t2-terra-lt)}
+
+/* SECTION HEADINGS — centered with rule ornament */
+.h-deco{text-align:center}
+.h-deco::after{content:"";display:block;width:56px;border-top:3px solid var(--color-primary);margin:var(--space-3) auto 0}
+.section-lead{text-align:center;max-width:46rem;margin-inline:auto}
+
+/* MENU LIST — dotted-leader rows instead of cards */
+.menu-list{max-width:44rem;margin-inline:auto}
+.menu-row{padding-block:var(--space-4);border-bottom:1px solid var(--color-border)}
+.menu-row:last-child{border-bottom:none}
+.menu-row-top{display:flex;align-items:baseline;gap:var(--space-3)}
+.menu-row-top .item-name{font-size:var(--text-xl);font-weight:600}
+.menu-row-top .leader{flex:1;border-bottom:2px dotted var(--color-border);transform:translateY(-4px)}
+.price,.item-price{font-size:var(--text-lg);font-weight:600;color:var(--color-primary);white-space:nowrap}
+.item-desc{margin:var(--space-1) 0 0;color:var(--color-text-muted)}
+
+/* REVIEWS — big editorial pull quotes, no cards */
+.quote-stack{max-width:46rem;margin-inline:auto;text-align:center}
+.review{padding-block:var(--space-6)}
+.review + .review{border-top:1px solid var(--color-border)}
+.review blockquote{margin:0 0 var(--space-3);font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:var(--text-xl);line-height:1.45}
+.review cite{font-style:normal;font-family:system-ui,sans-serif;font-size:.8125rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--color-text-muted)}
+
+/* SPECIALS BOARD — framed double-rule board */
+.board{max-width:46rem;margin-inline:auto;border:4px double var(--color-text);background:var(--color-surface);padding:var(--space-6);text-align:center}
+.board h2{margin-top:0}
+
+/* CTA BAND */
+.cta-band{background:var(--color-primary)}
+.cta-band h2{font-weight:600}
+.cta-band .btn--primary{background:#FFF8EE;color:var(--color-primary-dark)}
+.cta-band a:focus-visible{outline-color:#FFF8EE}
+
+/* FOOTER — dark, centered masthead echo */
+.site-footer{background:var(--t2-ink);border-top:none;color:#D9CDBD;text-align:center;padding-block:var(--space-8)}
+.footer-mark{font-family:'Fraunces',Georgia,serif;font-size:var(--text-2xl);font-weight:600;color:#FFF8EE;margin:0 0 var(--space-2)}
+.footer-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--space-5) var(--space-7);margin-top:var(--space-5)}
+.footer-h{font-family:system-ui,sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--t2-terra-lt);margin:0 0 var(--space-2)}
+.site-footer a{color:#FFF8EE}
+.site-footer a:focus-visible{outline-color:var(--t2-terra-lt)}
 .site-footer ul{list-style:none;margin:0;padding:0}
 .site-footer li{margin-bottom:var(--space-2)}
+.footer-legal{margin-top:var(--space-6);font-size:var(--text-sm);color:#B5A791}
+.footer-legal a{color:#D9CDBD}
+
+/* SHARED BITS kept from v1 */
+.ph{display:block;width:100%;height:auto;border:1px solid var(--color-border)}
+figure{margin:0}
+figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var(--space-2)}
+.phone-big{display:inline-block;font-family:'Fraunces',Georgia,serif;font-size:var(--text-3xl);font-weight:600;color:var(--color-primary);text-decoration:none}
+.field-error{display:block;color:var(--color-error);font-size:var(--text-sm);margin-top:var(--space-1)}
+.field label{font-family:system-ui,sans-serif}
+.callout{background:var(--color-surface);border:1px solid var(--color-border);padding:var(--space-5)}
 </style>
 </head>
 <body>
@@ -84,7 +161,6 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
         <li><a href="contact/">Contact</a></li>
       </ul>
     </nav>
-    <a class="btn btn--primary" href="menu/">See the menu</a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
       <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M2 4h16M2 10h16M2 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       Menu
@@ -92,21 +168,20 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
   </div>
 </header>
 <main id="main">
-  <!-- HERO -->
-  <section class="section">
-    <div class="container hero">
-      <div>
-        <h1 data-fill="h1_home">Scratch cooking and big portions on the shore of the big lake</h1>
-        <p data-fill="tagline">We're an old-fashioned diner in downtown Ashland — real hashbrowns off the flat-top, pie baked that morning, and a coffee cup that never runs dry. Breakfast served all day, every day.</p>
-        <p><a class="btn btn--primary" href="menu/">See the menu</a>
-        <a class="btn btn--secondary" href="visit/">Hours &amp; directions</a></p>
-      </div>
-      <svg class="ph" role="img" aria-label="Photo: a loaded diner breakfast plate with eggs, hashbrowns, and pancakes on the counter" width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg"><rect width="800" height="600" fill="#E7ECE8"/><rect x="12" y="12" width="776" height="576" fill="none" stroke="#C5CFC8" stroke-width="2" stroke-dasharray="8 8"/><text x="400" y="288" text-anchor="middle" font-family="system-ui,sans-serif" font-size="30" fill="#444E47">Photo placeholder</text><text x="400" y="330" text-anchor="middle" font-family="system-ui,sans-serif" font-size="22" fill="#444E47">Hero — signature breakfast plate</text></svg>
+  <!-- HERO — full-bleed photo with overlay copy -->
+  <section class="hero-full" aria-label="Welcome">
+    <svg class="hero-bg" role="img" aria-label="Photo: a loaded diner breakfast plate with eggs, hashbrowns, and pancakes on the counter" preserveAspectRatio="xMidYMid slice" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg"><rect width="800" height="600" fill="#4A3A2C"/><rect x="12" y="12" width="776" height="576" fill="none" stroke="#6E5945" stroke-width="2" stroke-dasharray="8 8"/><text x="32" y="52" text-anchor="start" font-family="system-ui,sans-serif" font-size="24" fill="#CDB9A2">Photo placeholder</text><text x="32" y="86" text-anchor="start" font-family="system-ui,sans-serif" font-size="18" fill="#CDB9A2">Hero — signature breakfast plate</text></svg>
+    <div class="hero-copy">
+      <p class="hero-kicker" data-fill="todays_hours">Mon–Sat 6am–2pm · Sun 7am–1pm</p>
+      <h1 data-fill="h1_home">Scratch cooking and big portions on the shore of the big lake</h1>
+      <p data-fill="tagline">We're an old-fashioned diner in downtown Ashland — real hashbrowns off the flat-top, pie baked that morning, and a coffee cup that never runs dry. Breakfast served all day, every day.</p>
+      <p><a class="btn btn--primary" href="menu/">See the menu</a>
+      <a class="btn btn--secondary" href="visit/">Hours &amp; directions</a></p>
     </div>
   </section>
 
-  <!-- HOURS / LOCATION STRIP (above the fold — the #1 thing diners check) -->
-  <section class="section section--tinted" aria-label="Hours and location">
+  <!-- HOURS / LOCATION BAND (above the fold — the #1 thing diners check) -->
+  <section class="info-band" aria-label="Hours and location">
     <div class="container info-strip">
       <p><span class="info-label">Kitchen hours</span><span data-fill="todays_hours">Mon–Sat 6am–2pm · Sun 7am–1pm</span></p>
       <p><span class="info-label">Find us</span><span data-fill="address">118 Main Street West, Ashland, WI 54806</span></p>
@@ -115,58 +190,55 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
     </div>
   </section>
 
-  <!-- 3 SIGNATURE ITEMS -->
+  <!-- 3 SIGNATURE ITEMS — menu-board rows, not cards -->
   <section class="section">
     <div class="container">
-      <h2>What we're known for</h2>
-      <div class="grid-cards">
-        <div class="card">
-          <h3 data-fill="signature_1_name">The Iron Range Skillet</h3>
-          <p data-fill="signature_1_desc">Hashbrowns, two eggs, sausage, peppers and onions under a blanket of scratch sausage gravy.</p>
-          <p class="price" data-fill="signature_1_price">$11.95</p>
+      <h2 class="h-deco">What we're known for</h2>
+      <div class="menu-list">
+        <div class="menu-row">
+          <div class="menu-row-top"><span class="item-name" data-fill="signature_1_name">The Iron Range Skillet</span><span class="leader" aria-hidden="true"></span><span class="price" data-fill="signature_1_price">$11.95</span></div>
+          <p class="item-desc" data-fill="signature_1_desc">Hashbrowns, two eggs, sausage, peppers and onions under a blanket of scratch sausage gravy.</p>
         </div>
-        <div class="card">
-          <h3 data-fill="signature_2_name">Whitefish &amp; Eggs</h3>
-          <p data-fill="signature_2_desc">Lake Superior whitefish, lightly floured and pan-fried, with two eggs and thick-cut toast.</p>
-          <p class="price" data-fill="signature_2_price">$13.50</p>
+        <div class="menu-row">
+          <div class="menu-row-top"><span class="item-name" data-fill="signature_2_name">Whitefish &amp; Eggs</span><span class="leader" aria-hidden="true"></span><span class="price" data-fill="signature_2_price">$13.50</span></div>
+          <p class="item-desc" data-fill="signature_2_desc">Lake Superior whitefish, lightly floured and pan-fried, with two eggs and thick-cut toast.</p>
         </div>
-        <div class="card">
-          <h3 data-fill="signature_3_name">Big Lake Pancakes</h3>
-          <p data-fill="signature_3_desc">Three buttermilk cakes the size of hubcaps, with real Wisconsin butter and warm syrup.</p>
-          <p class="price" data-fill="signature_3_price">$8.95</p>
+        <div class="menu-row">
+          <div class="menu-row-top"><span class="item-name" data-fill="signature_3_name">Big Lake Pancakes</span><span class="leader" aria-hidden="true"></span><span class="price" data-fill="signature_3_price">$8.95</span></div>
+          <p class="item-desc" data-fill="signature_3_desc">Three buttermilk cakes the size of hubcaps, with real Wisconsin butter and warm syrup.</p>
         </div>
       </div>
-      <p><a href="menu/">See the whole menu →</a></p>
+      <p class="section-lead"><a href="menu/">See the whole menu →</a></p>
     </div>
   </section>
 
-  <!-- REVIEWS -->
+  <!-- REVIEWS — editorial pull quotes -->
   <section class="section section--tinted" aria-label="What regulars say">
-    <div class="container">
-      <h2>What the regulars say</h2>
-      <div class="grid-cards">
-        <div class="card review">
-          <blockquote data-fill="review_1_quote">"Best breakfast on the South Shore, hands down. The whitefish and eggs is worth the drive from Washburn."</blockquote>
-          <cite><span data-fill="review_1_name">Karen L.</span>, <span data-fill="review_1_town">Washburn</span></cite>
-        </div>
-        <div class="card review">
-          <blockquote data-fill="review_2_quote">"Coffee's always hot, the pie's always fresh, and Ruth knows my order before I sit down. This is my kind of place."</blockquote>
-          <cite><span data-fill="review_2_name">Dave M.</span>, <span data-fill="review_2_town">Ashland</span></cite>
-        </div>
-        <div class="card review">
-          <blockquote data-fill="review_3_quote">"Portions are honest and so are the prices. We bring the grandkids every Sunday after church."</blockquote>
-          <cite><span data-fill="review_3_name">Linda &amp; Gary S.</span>, <span data-fill="review_3_town">Bayfield</span></cite>
-        </div>
+    <div class="container quote-stack">
+      <h2 class="h-deco">What the regulars say</h2>
+      <div class="review">
+        <blockquote data-fill="review_1_quote">"Best breakfast on the South Shore, hands down. The whitefish and eggs is worth the drive from Washburn."</blockquote>
+        <cite><span data-fill="review_1_name">Karen L.</span>, <span data-fill="review_1_town">Washburn</span></cite>
+      </div>
+      <div class="review">
+        <blockquote data-fill="review_2_quote">"Coffee's always hot, the pie's always fresh, and Ruth knows my order before I sit down. This is my kind of place."</blockquote>
+        <cite><span data-fill="review_2_name">Dave M.</span>, <span data-fill="review_2_town">Ashland</span></cite>
+      </div>
+      <div class="review">
+        <blockquote data-fill="review_3_quote">"Portions are honest and so are the prices. We bring the grandkids every Sunday after church."</blockquote>
+        <cite><span data-fill="review_3_name">Linda &amp; Gary S.</span>, <span data-fill="review_3_town">Bayfield</span></cite>
       </div>
     </div>
   </section>
 
-  <!-- SPECIALS BAND (care-plan feeder — updated weekly) -->
+  <!-- SPECIALS BOARD (care-plan feeder — updated weekly) -->
   <section class="section">
     <div class="container">
-      <h2>This week's specials</h2>
-      <p class="prose" data-fill="specials_note">This week: cornmeal-crusted walleye sandwich with a cup of wild rice soup, $12.95. And there's fresh pie every day — ask your server what came out of the oven this morning.</p>
-      <p class="prose"><strong>Specials change every week.</strong> We post the new board each Monday, so there's always a reason to come back.</p>
+      <div class="board">
+        <h2>This week's specials</h2>
+        <p data-fill="specials_note">This week: cornmeal-crusted walleye sandwich with a cup of wild rice soup, $12.95. And there's fresh pie every day — ask your server what came out of the oven this morning.</p>
+        <p><strong>Specials change every week.</strong> We post the new board each Monday, so there's always a reason to come back.</p>
+      </div>
     </div>
   </section>
 
@@ -181,36 +253,33 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
   </section>
 </main>
 <footer class="site-footer">
-  <div class="container footer-grid">
-    <div>
-      <h2 class="footer-h" data-fill="business_name">Gitche Gumee Diner</h2>
-      <p><span data-fill="address">118 Main Street West, Ashland, WI 54806</span><br>
-      <a href="tel:+17155550126" data-fill="phone">(715) 555-0126</a><br>
-      <a href="mailto:hello@gitchegumeediner.com" data-fill="email">hello@gitchegumeediner.com</a></p>
+  <div class="container">
+    <p class="footer-mark" data-fill="business_name">Gitche Gumee Diner</p>
+    <div class="footer-grid">
+      <div>
+        <h2 class="footer-h">Find us</h2>
+        <p><span data-fill="address">118 Main Street West, Ashland, WI 54806</span><br>
+        <a href="tel:+17155550126" data-fill="phone">(715) 555-0126</a><br>
+        <a href="mailto:hello@gitchegumeediner.com" data-fill="email">hello@gitchegumeediner.com</a></p>
+      </div>
+      <nav aria-label="Footer">
+        <h2 class="footer-h">Pages</h2>
+        <ul>
+          <li><a href="./">Home</a></li>
+          <li><a href="menu/">Menu</a></li>
+          <li><a href="about/">About</a></li>
+          <li><a href="visit/">Visit</a></li>
+          <li><a href="contact/">Contact</a></li>
+          <li><a href="privacy/">Privacy</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2 class="footer-h">Hours</h2>
+        <p data-fill="hours">Monday–Saturday, 6am–2pm<br>Sunday, 7am–1pm</p>
+        <p><a href="https://facebook.com/" data-fill="facebook_url">Find us on Facebook</a></p>
+      </div>
     </div>
-    <nav aria-label="Footer">
-      <h2 class="footer-h">Pages</h2>
-      <ul>
-        <li><a href="./">Home</a></li>
-        <li><a href="menu/">Menu</a></li>
-        <li><a href="about/">About</a></li>
-        <li><a href="visit/">Visit</a></li>
-        <li><a href="contact/">Contact</a></li>
-      </ul>
-    </nav>
-    <div>
-      <h2 class="footer-h">Hours</h2>
-      <p data-fill="hours">Monday–Saturday, 6am–2pm<br>Sunday, 7am–1pm</p>
-      <p><a href="https://facebook.com/" data-fill="facebook_url">Find us on Facebook</a></p>
-    </div>
-    <div>
-      <h2 class="footer-h">Come see us</h2>
-      <p><a class="btn btn--primary" href="menu/">See the menu</a></p>
-      <p><a href="privacy/">Privacy</a></p>
-    </div>
-  </div>
-  <div class="container" style="margin-top:var(--space-6)">
-    <p>&copy; 2026 <span data-fill="business_name">Gitche Gumee Diner</span> · Site by <a href="https://buildwithbaker.io">Build with Baker</a></p>
+    <p class="footer-legal">&copy; 2026 <span data-fill="business_name">Gitche Gumee Diner</span> · Site by <a href="https://buildwithbaker.io">Build with Baker</a></p>
   </div>
 </footer>
 <script>
@@ -229,5 +298,6 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
   });
 })();
 </script>
+<script src="../shared/demo-theme.js" defer></script>
 </body>
 </html>
