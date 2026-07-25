@@ -11,36 +11,96 @@
 <meta property="og:description" content="Hours, parking, and directions to our Main Street store in Ashland, WI.">
 <meta property="og:image" content="../share.jpg" data-fill="og_image">
 <link rel="stylesheet" href="../../shared/tokens.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Karla:ital,wght@0,400;0,500;0,600;1,400&display=swap">
 <style>
-:root{--color-primary:#5B4A68;--color-primary-dark:#493B53}
-/* T4 template-specific components only — the kit lives in ../../shared/tokens.css */
-.header-bar{display:flex;align-items:center;gap:var(--space-4)}
-.wordmark{font-weight:700;font-size:var(--text-lg);color:var(--color-text);text-decoration:none;padding-block:var(--space-3);margin-right:auto}
-.site-nav ul{display:flex;gap:var(--space-2);list-style:none;margin:0;padding:0}
-.site-nav a{display:inline-block;padding:var(--space-2) var(--space-3);text-decoration:none;color:var(--color-text);border-bottom:3px solid transparent}
-.site-nav a[aria-current="page"]{font-weight:700;color:var(--color-primary);border-bottom-color:var(--color-primary)}
-.nav-toggle{display:none;align-items:center;gap:var(--space-2);min-height:44px;padding:var(--space-2) var(--space-3);font:inherit;font-weight:600;color:var(--color-text);background:none;border:1px solid var(--color-border);border-radius:var(--radius);cursor:pointer}
+:root{
+  --color-primary:#5B4A68;--color-primary-dark:#493B53;
+  --color-text:#292331;--color-text-muted:#665E70;
+  --color-border:#E6E2E9;--color-surface:#F7F5F8;--color-bg:#FFFFFF;
+  --radius:0px;
+  --header-h:104px;
+}
+/* T4 v2 "Clean Boutique" — white, hairlines, tracked small-caps. Kit lives in ../../shared/tokens.css */
+body{font-family:"Karla",system-ui,sans-serif}
+h1,h2,h3{font-family:"Montserrat",system-ui,sans-serif;font-weight:300;letter-spacing:.015em}
+h3{font-weight:400}
+.section{padding-block:clamp(4rem,8vh,6rem)}
+/* header — stacked centered logotype over a single thin-rule nav */
+.header-bar{display:flex;flex-direction:column;align-items:center;gap:0;position:relative;padding-top:var(--space-3)}
+.wordmark{font-family:"Montserrat",sans-serif;font-weight:500;font-size:1.02rem;text-transform:uppercase;letter-spacing:.3em;text-indent:.3em;color:var(--color-text);text-decoration:none;padding-block:var(--space-3);margin-right:0}
+.site-nav{width:100%;border-top:1px solid var(--color-border)}
+.site-nav ul{display:flex;justify-content:center;gap:var(--space-2);list-style:none;margin:0;padding:0}
+.site-nav a{display:inline-block;padding:var(--space-3);font-size:var(--text-sm);text-transform:uppercase;letter-spacing:.14em;text-decoration:none;color:var(--color-text);border-bottom:2px solid transparent}
+.site-nav a:hover{color:var(--color-primary)}
+.site-nav a[aria-current="page"]{color:var(--color-primary);border-bottom-color:var(--color-primary);font-weight:500}
+.site-header .btn--primary{position:absolute;top:var(--space-4);right:0}
+.nav-toggle{display:none;align-items:center;gap:var(--space-2);min-height:44px;padding:var(--space-2) var(--space-3);font:inherit;font-size:var(--text-sm);text-transform:uppercase;letter-spacing:.1em;color:var(--color-text);background:none;border:1px solid var(--color-border);cursor:pointer}
 @media (max-width:47.99rem){
+  .header-bar{flex-direction:row;padding-top:0;gap:var(--space-3)}
+  .wordmark{margin-right:auto;font-size:.82rem;letter-spacing:.18em;text-indent:0}
+  .site-header .btn--primary{position:static;align-self:center;white-space:nowrap;padding:.55rem .8rem;letter-spacing:.08em}
   .nav-toggle{display:inline-flex}
-  .site-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--color-bg);border-bottom:1px solid var(--color-border);box-shadow:0 8px 16px rgb(0 0 0 / .08)}
+  .site-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--color-bg);border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border);box-shadow:0 8px 16px rgb(41 35 49 / .08)}
   .site-nav.is-open{display:block}
   .site-nav ul{flex-direction:column;padding:var(--space-2)}
-  .site-nav a{display:block;padding:var(--space-3)}
+  .site-nav a{display:block;padding:var(--space-3);border-bottom:0}
 }
-.visit-layout{display:grid;gap:var(--space-6);align-items:start}
-@media (min-width:60rem){.visit-layout{grid-template-columns:1.3fr 1fr}}
-.ph{display:block;width:100%;height:auto;border:1px solid var(--color-border);border-radius:var(--radius)}
-.callout{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius);padding:var(--space-5)}
-.callout h2{font-size:var(--text-lg)}
-.hours-table{width:100%;border-collapse:collapse;margin-top:var(--space-3)}
-.hours-table caption{text-align:left;font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:var(--space-3)}
-.hours-table th,.hours-table td{text-align:left;padding:var(--space-2) var(--space-3);border-bottom:1px solid var(--color-border)}
-.hours-table thead th{border-bottom:2px solid var(--color-border)}
+/* buttons — square, tracked small-caps */
+.btn{border-radius:0;padding:.8rem 1.5rem;font-family:"Montserrat",sans-serif;font-weight:500;font-size:var(--text-sm);text-transform:uppercase;letter-spacing:.14em;line-height:1.4}
+.btn--secondary{border:1px solid var(--color-primary)}
+/* imagery + cards — hairlines, square corners, no shadows */
+.ph{display:block;width:100%;height:auto;border:1px solid var(--color-border);border-radius:0}
+.card{background:var(--color-bg);border:1px solid var(--color-border);border-radius:0;padding:var(--space-6)}
+/* gallery product grid — the signature: flush photo, hairline frame */
+.item{padding:0;overflow:hidden}
+.item .ph{border:0;border-bottom:1px solid var(--color-border)}
+.item figcaption{padding:var(--space-4) var(--space-5) var(--space-5)}
+.item h2{font-size:var(--text-base);font-weight:500;letter-spacing:.06em;text-transform:uppercase;margin-bottom:var(--space-2)}
+.item p{margin-bottom:0;color:var(--color-text-muted);font-size:var(--text-sm)}
+figure{margin:0}
+figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:0}
+/* hero (index) */
+.hero{display:grid;gap:var(--space-7);align-items:center}
+@media (min-width:48rem){.hero{grid-template-columns:1.1fr 1fr}}
+.hero h1{font-size:clamp(2rem,1.3rem + 2.6vw,3.2rem);line-height:1.15}
+/* hours strip — centered hairline band, no box */
+.hours-strip{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--space-3) var(--space-5);align-items:center;background:transparent;border:0;border-block:1px solid var(--color-border);border-radius:0;padding:var(--space-4) var(--space-5);margin-top:var(--space-7);font-size:var(--text-sm);letter-spacing:.08em;text-transform:uppercase}
+.hours-strip .sep{color:var(--color-border)}
+/* reviews */
+.review blockquote{margin:0 0 var(--space-3);font-style:italic;font-size:var(--text-lg);line-height:1.55}
+.review cite{font-style:normal;font-weight:500;font-size:var(--text-sm);letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-muted)}
+/* CTA band — the one plum moment */
+.cta-band{background:var(--color-primary-dark)}
+.cta-band .btn--primary{background:#fff;color:var(--color-primary-dark)}
+/* footer — pale plum-gray, hairline top */
+.site-footer{background:var(--color-surface);border-top:1px solid var(--color-border);padding-block:var(--space-8);color:var(--color-text-muted)}
 .footer-grid{display:grid;gap:var(--space-6);grid-template-columns:repeat(auto-fit,minmax(13rem,1fr))}
-.footer-h{font-size:var(--text-base);margin-bottom:var(--space-3)}
-.site-footer a{color:var(--color-text)}
+.footer-h{font-family:"Montserrat",sans-serif;font-size:var(--text-sm);font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--color-text);margin-bottom:var(--space-3)}
+.site-footer a{color:var(--color-primary)}
+.site-footer .btn--primary{color:#fff}
 .site-footer ul{list-style:none;margin:0;padding:0}
 .site-footer li{margin-bottom:var(--space-2)}
+/* story */
+.about-layout{display:grid;gap:var(--space-6);align-items:start}
+@media (min-width:48rem){.about-layout{grid-template-columns:1fr 1.6fr}}
+/* visit */
+.visit-layout{display:grid;gap:var(--space-6);align-items:start}
+@media (min-width:60rem){.visit-layout{grid-template-columns:1.3fr 1fr}}
+.callout{background:var(--color-surface);border:1px solid var(--color-border);border-radius:0;padding:var(--space-5)}
+.callout h2{font-size:var(--text-base);font-weight:500;letter-spacing:.1em;text-transform:uppercase}
+.hours-table{width:100%;border-collapse:collapse;margin-top:var(--space-3)}
+.hours-table caption{text-align:left;font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:var(--space-3)}
+.hours-table th,.hours-table td{text-align:left;padding:var(--space-3);border-bottom:1px solid var(--color-border)}
+.hours-table thead th{border-bottom:2px solid var(--color-primary);font-family:"Montserrat",sans-serif;font-weight:500;font-size:var(--text-sm);letter-spacing:.12em;text-transform:uppercase}
+/* contact */
+.contact-layout{display:grid;gap:var(--space-6);align-items:start}
+@media (min-width:60rem){.contact-layout{grid-template-columns:1.6fr 1fr}}
+.phone-big{display:inline-block;font-family:"Montserrat",sans-serif;font-weight:300;font-size:var(--text-3xl);color:var(--color-primary);text-decoration:none;padding:var(--space-2) 0}
+.click-trigger{font-weight:600;color:var(--color-text)}
+.field-error{display:block;color:var(--color-error);font-size:var(--text-sm);margin-top:var(--space-1)}
+.field input,.field textarea,.field select{border-radius:0}
 </style>
 </head>
 <body>
