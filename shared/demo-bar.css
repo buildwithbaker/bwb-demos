@@ -1,0 +1,64 @@
+/* demo-bar.css — DEMO SITES ONLY.
+   Disclosure strip for the four bwb-demos showcase sites. Deliberately styled as
+   Build with Baker chrome, not as client-site chrome, so it reads as an overlay
+   rather than part of the fictional business's own design — that separation is the
+   point, and it also keeps the four-studio test intact.
+
+   Demo-only, exactly like shared/demo-theme.js and the noindex meta.
+   NEVER add this file, or the markup it styles, to bwb-templates. */
+
+.bwb-demo-bar {
+  background: #1E1B4B;
+  color: #E8E6F5;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  padding: 0.6rem 1rem;
+  text-align: center;
+  border-bottom: 3px solid #C9A227;
+}
+
+.bwb-demo-bar p {
+  margin: 0 auto;
+  max-width: 68rem;
+}
+
+.bwb-demo-bar .bwb-demo-tag {
+  display: inline-block;
+  background: #C9A227;
+  color: #1E1B4B;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-size: 0.6875rem;
+  padding: 0.16rem 0.5rem;
+  border-radius: 2px;
+  margin-right: 0.5rem;
+  vertical-align: 0.05em;
+}
+
+.bwb-demo-bar a {
+  color: #FFFFFF;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.bwb-demo-bar a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.bwb-demo-bar a:focus-visible {
+  outline: 2px solid #C9A227;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* t3 (stay-play) floats a transparent header over its full-bleed hero with
+   position:absolute; top:0. This wrapper gives that header a containing block
+   starting below the bar, so it overlays the photo and not the disclosure.
+   No height matching, so it holds at every breakpoint. */
+.bwb-demo-shell { position: relative; }
+
+@media print {
+  .bwb-demo-bar { display: none; }
+}
