@@ -48,7 +48,7 @@ a{color:var(--color-primary)}
 .section--tinted{background:var(--color-surface)}
 .container{width:min(72rem,100% - 2*var(--space-4));margin-inline:auto}
 .prose{max-width:65ch}
-.grid-cards{display:grid;gap:var(--space-5);grid-template-columns:repeat(auto-fit,minmax(16rem,1fr))}
+.grid-cards{display:grid;gap:var(--space-5);grid-template-columns:repeat(auto-fit,minmax(min(16rem,100%),1fr))}
 .stack>*+*{margin-top:var(--space-3)}
 
 /* COMPONENTS */
@@ -64,7 +64,7 @@ a{color:var(--color-primary)}
   border-radius:999px;background:var(--color-surface);border:1px solid var(--color-border)}
 .field{display:block;margin-bottom:var(--space-4)}
 .field label{display:block;font-weight:600;margin-bottom:var(--space-1)}
-.field input,.field textarea,.field select{width:100%;padding:.65rem .75rem;font:inherit;
+.field input,.field textarea,.field select{width:100%;min-width:0;padding:.65rem .75rem;font:inherit;
   border:1px solid var(--color-border);border-radius:var(--radius);background:#fff;color:var(--color-text)}
 
 /* CHROME */
@@ -78,6 +78,59 @@ a{color:var(--color-primary)}
 .cta-band{background:var(--color-primary);color:#fff;text-align:center}
 .cta-band h2,.cta-band p{color:#fff}
 .cta-band .btn--primary{background:#fff;color:var(--color-primary)}
+
+/* NARROW-VIEWPORT SAFETY - nothing may claim an intrinsic width wider than its
+   container. Each rule targets a cause, not the element you see spilling out.
+   1. A grid track written `1fr` or `auto` is `minmax(auto,1fr)`: its floor is the
+      child's min-content, so a wide child pushes the whole track past the container.
+      Every `minmax()` floor is therefore capped with `min(<size>,100%)`.
+   2. What raises that min-content is almost always one unbreakable token - an email
+      address or a URL. `overflow-wrap:anywhere` lowers a box's min-content
+      contribution; `break-word` does NOT, which is why it is not used there.
+   3. Flex items default to `min-width:auto`, so the header bar cannot shrink below the
+      sum of its children's minimums. Rather than force the document wider it now wraps -
+      but only when it truly has to. See the mobile block below for how. */
+p,li,dd,address,blockquote,figcaption{overflow-wrap:anywhere}
+/* ...but never on navigation. A nav label is one or two short words and must stay whole;
+   `anywhere` would hyphen-lessly split "Home" into "Ho/me" the moment the bar gets tight. */
+.site-nav li,.site-nav a{overflow-wrap:normal}
+/* The wordmark gets `break-word`, NOT `anywhere`. `anywhere` would drop its min-content to
+   a single character - and min-content is exactly what the header's line-breaking reads
+   below, so the bar would stack the business name into a one-letter column. `break-word`
+   still breaks a pathologically long name rather than letting it spill; it just does not
+   lie about the name's intrinsic width. */
+.wordmark{overflow-wrap:break-word}
+
+/* THE MOBILE HEADER BAR. Scoped to the breakpoint every template already switches its
+   header at, so the desktop bar is left exactly as it was - it never overflowed.
+   Flex line-breaking reads each item's HYPOTHETICAL main size, not its minimum, so
+   `flex-wrap:wrap` alone breaks the bar the moment the wordmark's FULL width stops
+   fitting - far earlier than necessary, and on templates that were never in trouble.
+   Giving the wordmark a min-content basis makes the break happen on the real minimums:
+   the bar stays one row for as long as it genuinely can. */
+@media (max-width:47.99rem){
+  .header-bar{flex-wrap:wrap}
+  /* last-resort backstop for a single child wider than the whole bar */
+  .header-bar>*{min-width:0}
+  /* No max-width here: T2 sets its own `calc(100% - 6rem)` to reserve room for a toggle
+     it positions absolutely, and overriding that lays the two on top of each other. */
+  .header-bar>.wordmark{flex:1 1 min-content}
+  /* The CTA takes its minimum and does not compete for the spare pixels: on a phone there
+     are few of them and they are worth more to the business name than to a button that
+     reads fine on two lines. */
+  .header-bar>.btn{flex:0 1 min-content}
+  /* Menu goes to the end of whichever row it lands on, so a wrapped bar reads as two
+     deliberate rows - identity left, controls stacked right - instead of leaving it
+     orphaned bottom-left. On an unwrapped row the wordmark's growth has already taken the
+     free space, so this auto margin resolves to zero and nothing moves. */
+  .header-bar>.nav-toggle{margin-inline-start:auto}
+}
+/* Wide phones and small tablets have real spare width, so the CTA is allowed to grow back
+   to its natural width - capped there, never stretched - instead of sitting on two lines
+   all the way up to the desktop breakpoint. */
+@media (min-width:36rem) and (max-width:47.99rem){
+  .header-bar>.btn{flex-grow:1;max-width:max-content}
+}
 
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
