@@ -6,10 +6,12 @@
 <meta name="robots" content="noindex">
 <title>Visit Us — Hours, Location &amp; Parking — Gitche Gumee Diner, Ashland WI</title>
 <meta name="description" content="Find Gitche Gumee Diner at 410 Gitche Gumee Avenue in downtown Ashland, WI. Hours, free parking, directions to the lakeshore, and takeout info.">
+<link rel="canonical" href="https://buildwithbaker.github.io/bwb-demos/eat-drink/visit/" data-fill="domain">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Visit Us — Gitche Gumee Diner">
 <meta property="og:description" content="Hours, location, parking, and directions to our diner in downtown Ashland, WI.">
 <meta property="og:image" content="../share.jpg" data-fill="og_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../../shared/tokens.css">
 <link rel="stylesheet" href="../../shared/demo-bar.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -124,7 +126,8 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
 
 .visit-layout{display:grid;gap:var(--space-6)}
 @media (min-width:48rem){.visit-layout{grid-template-columns:1.4fr 1fr;align-items:start}}
-.hours-table{width:100%;border-collapse:collapse;max-width:46rem}
+.hours-table-wrap{overflow-x:auto}
+.hours-table{width:100%;border-collapse:collapse;max-width:46rem;min-width:22rem}
 .hours-table caption{font-family:'Fraunces',Georgia,serif;font-size:var(--text-2xl);font-weight:600;margin-bottom:var(--space-4);text-align:left}
 .hours-table th,.hours-table td{padding:var(--space-3);border-bottom:1px solid var(--color-border);text-align:left;vertical-align:top}
 .hours-table thead th{font-family:system-ui,sans-serif;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--color-text-muted)}
@@ -186,29 +189,31 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
 
   <section class="section">
     <div class="container">
-      <table class="hours-table">
-        <caption>Our hours by season</caption>
-        <thead>
-          <tr><th scope="col">Season</th><th scope="col">Days</th><th scope="col">Hours</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Regular season<br>(Sept–May)</th>
-            <td>Monday–Saturday<br>Sunday</td>
-            <td data-fill="hours_regular">6:00am – 2:00pm<br>7:00am – 1:00pm</td>
-          </tr>
-          <tr>
-            <th scope="row">Summer<br>(June–Aug)</th>
-            <td>Daily</td>
-            <td data-fill="hours_summer">6:00am – 3:00pm — we stay open an extra hour for the tourist season</td>
-          </tr>
-          <tr>
-            <th scope="row">Holidays</th>
-            <td>—</td>
-            <td data-fill="hours_holiday">Closed Thanksgiving and Christmas Day. Open regular hours the rest of the year, including most holidays.</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="hours-table-wrap">
+        <table class="hours-table">
+          <caption>Our hours by season</caption>
+          <thead>
+            <tr><th scope="col">Season</th><th scope="col">Days</th><th scope="col">Hours</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Regular season<br>(Sept–May)</th>
+              <td>Monday–Saturday<br>Sunday</td>
+              <td data-fill="hours_regular">6:00am – 2:00pm<br>7:00am – 1:00pm</td>
+            </tr>
+            <tr>
+              <th scope="row">Summer<br>(June–Aug)</th>
+              <td>Daily</td>
+              <td data-fill="hours_summer">6:00am – 3:00pm — we stay open an extra hour for the tourist season</td>
+            </tr>
+            <tr>
+              <th scope="row">Holidays</th>
+              <td>—</td>
+              <td data-fill="hours_holiday">Closed Thanksgiving and Christmas Day. Open regular hours the rest of the year, including most holidays.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 

@@ -6,10 +6,12 @@
 <meta name="robots" content="noindex">
 <title>Visit Us — Hours, Location &amp; Parking — Chequamegon Mercantile, Ashland WI</title>
 <meta name="description" content="Find Chequamegon Mercantile at 220 Chequamegon Square in Ashland, WI. Hours, parking, directions, and our seasonal summer schedule.">
+<link rel="canonical" href="https://buildwithbaker.github.io/bwb-demos/shop-office/visit/" data-fill="domain">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Visit Us — Chequamegon Mercantile">
 <meta property="og:description" content="Hours, parking, and directions to our Chequamegon Square store in Ashland, WI.">
 <meta property="og:image" content="../share.jpg" data-fill="og_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../../shared/tokens.css">
 <link rel="stylesheet" href="../../shared/demo-bar.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -77,7 +79,7 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:0}
 .cta-band .btn--primary{background:#fff;color:var(--color-primary-dark)}
 /* footer — pale plum-gray, hairline top */
 .site-footer{background:var(--color-surface);border-top:1px solid var(--color-border);padding-block:var(--space-8);color:var(--color-text-muted)}
-.footer-grid{display:grid;gap:var(--space-6);grid-template-columns:repeat(auto-fit,minmax(13rem,1fr))}
+.footer-grid{display:grid;gap:var(--space-6);grid-template-columns:repeat(auto-fit,minmax(min(13rem,100%),1fr))}
 .footer-h{font-family:"Montserrat",sans-serif;font-size:var(--text-sm);font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--color-text);margin-bottom:var(--space-3)}
 .site-footer a{color:var(--color-primary)}
 .site-footer .btn--primary{color:#fff}
@@ -91,7 +93,8 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:0}
 @media (min-width:60rem){.visit-layout{grid-template-columns:1.3fr 1fr}}
 .callout{background:var(--color-surface);border:1px solid var(--color-border);border-radius:0;padding:var(--space-5)}
 .callout h2{font-size:var(--text-base);font-weight:500;letter-spacing:.1em;text-transform:uppercase}
-.hours-table{width:100%;border-collapse:collapse;margin-top:var(--space-3)}
+.hours-table-wrap{overflow-x:auto}
+.hours-table{width:100%;border-collapse:collapse;margin-top:var(--space-3);min-width:22rem}
 .hours-table caption{text-align:left;font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:var(--space-3)}
 .hours-table th,.hours-table td{text-align:left;padding:var(--space-3);border-bottom:1px solid var(--color-border)}
 .hours-table thead th{border-bottom:2px solid var(--color-primary);font-family:"Montserrat",sans-serif;font-weight:500;font-size:var(--text-sm);letter-spacing:.12em;text-transform:uppercase}
@@ -155,38 +158,40 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:0}
   <section class="section">
     <div class="container">
       <h2>Seasonal hours</h2>
-      <table class="hours-table">
-        <caption>Regular hours run all year. From Memorial Day through Labor Day we stay open later for the summer crowd. Closed Thanksgiving, Christmas Day, and New Year's Day.</caption>
-        <thead>
-          <tr>
-            <th scope="col">Day</th>
-            <th scope="col">Regular hours</th>
-            <th scope="col">Summer hours</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Monday–Friday</th>
-            <td data-fill="hours_regular_weekday">9am–6pm</td>
-            <td data-fill="hours_summer_weekday">9am–8pm</td>
-          </tr>
-          <tr>
-            <th scope="row">Saturday</th>
-            <td data-fill="hours_regular_saturday">9am–6pm</td>
-            <td data-fill="hours_summer_saturday">9am–8pm</td>
-          </tr>
-          <tr>
-            <th scope="row">Sunday</th>
-            <td data-fill="hours_regular_sunday">10am–4pm</td>
-            <td data-fill="hours_summer_sunday">10am–5pm</td>
-          </tr>
-          <tr>
-            <th scope="row">Holidays</th>
-            <td data-fill="hours_regular_holiday">Reduced — check Facebook</td>
-            <td data-fill="hours_summer_holiday">Reduced — check Facebook</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="hours-table-wrap">
+        <table class="hours-table">
+          <caption>Regular hours run all year. From Memorial Day through Labor Day we stay open later for the summer crowd. Closed Thanksgiving, Christmas Day, and New Year's Day.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Day</th>
+              <th scope="col">Regular hours</th>
+              <th scope="col">Summer hours</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Monday–Friday</th>
+              <td data-fill="hours_regular_weekday">9am–6pm</td>
+              <td data-fill="hours_summer_weekday">9am–8pm</td>
+            </tr>
+            <tr>
+              <th scope="row">Saturday</th>
+              <td data-fill="hours_regular_saturday">9am–6pm</td>
+              <td data-fill="hours_summer_saturday">9am–8pm</td>
+            </tr>
+            <tr>
+              <th scope="row">Sunday</th>
+              <td data-fill="hours_regular_sunday">10am–4pm</td>
+              <td data-fill="hours_summer_sunday">10am–5pm</td>
+            </tr>
+            <tr>
+              <th scope="row">Holidays</th>
+              <td data-fill="hours_regular_holiday">Reduced — check Facebook</td>
+              <td data-fill="hours_summer_holiday">Reduced — check Facebook</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
   <section class="section cta-band">
