@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'">
 <meta name="robots" content="noindex">
 <title>Visit Us — Hours, Location &amp; Parking — Chequamegon Mercantile, Ashland WI</title>
 <meta name="description" content="Find Chequamegon Mercantile at 220 Chequamegon Square in Ashland, WI. Hours, parking, directions, and our seasonal summer schedule.">
@@ -10,13 +11,30 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Visit Us — Chequamegon Mercantile">
 <meta property="og:description" content="Hours, parking, and directions to our Chequamegon Square store in Ashland, WI.">
-<meta property="og:image" content="../share.jpg" data-fill="og_image">
+<meta property="og:image" content="https://buildwithbaker.github.io/bwb-demos/shop-office/share.jpg" data-fill="og_image">
+<meta property="og:url" content="https://buildwithbaker.github.io/bwb-demos/shop-office/visit/" data-fill="domain">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../../shared/tokens.css">
-<link rel="stylesheet" href="../../shared/demo-bar.css">
+<script src="../../shared/site.js" defer></script>
+<style>/* demo-bar: DEMO SITES ONLY - never in bwb-templates. BwB indigo + sand, styled as BwB
+   chrome rather than the fictional business's own design. Inlined (was demo-bar.css) so it
+   costs no render-blocking request. */
+.bwb-demo-bar{background:#2B4A8B;color:#EEF1F8;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:.8125rem;line-height:1.5;padding:.6rem 1rem;text-align:center;border-bottom:3px solid #C9A876}
+.bwb-demo-bar p{margin:0 auto;max-width:68rem}
+.bwb-demo-bar .bwb-demo-tag{display:inline-block;background:#C9A876;color:#16213F;font-weight:700;text-transform:uppercase;letter-spacing:.09em;font-size:.6875rem;padding:.16rem .5rem;border-radius:2px;margin-right:.5rem;vertical-align:.05em}
+.bwb-demo-bar a{color:#fff;text-decoration:underline;text-underline-offset:2px}
+.bwb-demo-bar a:hover{text-decoration-thickness:2px}
+.bwb-demo-bar a:focus-visible,.bwb-demo-bar button:focus-visible{outline:2px solid #C9A876;outline-offset:2px;border-radius:2px}
+/* t3 floats its header over the hero; this shell starts that header below the bar */
+.bwb-demo-shell{position:relative}
+@media print{.bwb-demo-bar{display:none}}
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Karla:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Karla:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Karla:ital,wght@0,400;0,500;0,600;1,400&display=swap" media="print" data-async-css>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Karla:ital,wght@0,400;0,500;0,600;1,400&display=swap"></noscript>
 <style>
 :root{
   --color-primary:#5B4A68;--color-primary-dark:#493B53;
@@ -29,7 +47,7 @@
 body{font-family:"Karla",system-ui,sans-serif}
 h1,h2,h3{font-family:"Montserrat",system-ui,sans-serif;font-weight:300;letter-spacing:.015em}
 h3{font-weight:400}
-.section{padding-block:clamp(4rem,8vh,6rem)}
+.section{padding-block:clamp(3.5rem,1.5rem + 4vw,5rem)}
 /* header — stacked centered logotype over a single thin-rule nav */
 .header-bar{display:flex;flex-direction:column;align-items:center;gap:0;position:relative;padding-top:var(--space-3)}
 .wordmark{font-family:"Montserrat",sans-serif;font-weight:500;font-size:1.02rem;text-transform:uppercase;letter-spacing:.3em;text-indent:.3em;color:var(--color-text);text-decoration:none;padding-block:var(--space-3);margin-right:0}
@@ -105,6 +123,16 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:0}
 .click-trigger{font-weight:600;color:var(--color-text)}
 .field-error{display:block;color:var(--color-error);font-size:var(--text-sm);margin-top:var(--space-1)}
 .field input,.field textarea,.field select{border-radius:0}
+/* R-11 mobile action bar, t4 dress: hairline, tracked caps */
+.m-bar__hours{text-transform:uppercase;letter-spacing:.06em;font-size:.8125rem}
+.m-bar .btn{padding:.6rem .5rem;letter-spacing:.08em}
+/* R-31 location card: replaces the map placeholder. No map, and nothing that could
+   point at a real place - the address is the client's own slot. */
+.location-card{display:flex;flex-direction:column;justify-content:center;gap:var(--space-2);min-height:14rem;padding:var(--space-6);background:var(--color-bg);border:1px solid var(--color-border)}
+.location-card svg{color:var(--color-primary)}
+.location-card__label{margin:0;font-size:var(--text-sm);font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-muted)}
+.location-card__addr{margin:0;font-size:var(--text-xl);line-height:1.35;color:var(--color-text)}
+.location-card p:last-child{margin-bottom:0}
 </style>
 </head>
 <body>
@@ -131,6 +159,11 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:0}
     </button>
   </div>
 </header>
+<div class="m-bar" role="region" aria-label="Call us and opening hours">
+  <p class="m-bar__hours"><strong>Hours</strong> <span data-fill="todays_hours">Mon–Sat 9am–6pm · Sun 10am–4pm</span></p>
+  <a class="btn btn--primary" href="tel:+17155550187" data-fill-href="phone">Call us</a>
+  <a class="btn btn--secondary" href="#location" data-fill="directions_url">Directions</a>
+</div>
 <main id="main">
   <section class="section">
     <div class="container">
@@ -141,7 +174,11 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:0}
   <section class="section section--tinted" id="location">
     <div class="container visit-layout">
       <div>
-        <svg class="ph" role="img" aria-label="Map placeholder: Chequamegon Mercantile at 220 Chequamegon Square, downtown Ashland" width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg"><rect width="800" height="500" fill="#E7ECE8"/><rect x="12" y="12" width="776" height="476" fill="none" stroke="#C5CFC8" stroke-width="2" stroke-dasharray="8 8"/><text x="400" y="238" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" fill="#444E47">Map placeholder</text><text x="400" y="276" text-anchor="middle" font-family="system-ui,sans-serif" font-size="20" fill="#444E47">Static map — 220 Chequamegon Square</text></svg>
+        <div class="location-card">
+          <svg width="32" height="32" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+          <p class="location-card__label">Find us at</p>
+          <p class="location-card__addr" data-fill="address">220 Chequamegon Square, Ashland, WI 54806</p>
+        </div>
         <p style="margin-top:var(--space-4)"><a class="btn btn--primary" href="#location" data-fill="directions_url">Get directions</a></p>
         <h2>Parking</h2>
         <p data-fill="parking_note">Free two-hour street parking rings Chequamegon Square, and there's a municipal lot behind the building off Second Avenue with no time limit. The loading zone out front is fair game for a quick run-in — flip on your flashers and grab your coffee. Bike rack's by the door.</p>
@@ -150,7 +187,7 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:0}
         <h2>Find us</h2>
         <p><strong>Address</strong><br><span data-fill="address">220 Chequamegon Square, Ashland, WI 54806</span></p>
         <p><strong>Phone</strong><br><a href="tel:+17155550187" data-fill="phone">(715) 555-0187</a></p>
-        <p><strong>Email</strong><br><a href="mailto:hello@chequamegonmercantile.com" data-fill="email">hello@chequamegonmercantile.com</a></p>
+        <p><strong>Email</strong><br><a href="mailto:hello@chequamegonmercantile.example" data-fill="email">hello@chequamegonmercantile.example</a></p>
         <p><strong>Hours</strong><br><span data-fill="hours">Monday–Saturday, 9am–6pm<br>Sunday, 10am–4pm</span></p>
       </aside>
     </div>
@@ -158,7 +195,7 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:0}
   <section class="section">
     <div class="container">
       <h2>Seasonal hours</h2>
-      <div class="hours-table-wrap">
+      <div class="hours-table-wrap" tabindex="0" role="region" aria-label="Hours table, scrolls sideways">
         <table class="hours-table">
           <caption>Regular hours run all year. From Memorial Day through Labor Day we stay open later for the summer crowd. Closed Thanksgiving, Christmas Day, and New Year's Day.</caption>
           <thead>
@@ -208,7 +245,7 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:0}
       <h2 class="footer-h" data-fill="business_name">Chequamegon Mercantile</h2>
       <p><span data-fill="address">220 Chequamegon Square, Ashland, WI 54806</span><br>
       <a href="tel:+17155550187" data-fill="phone">(715) 555-0187</a><br>
-      <a href="mailto:hello@chequamegonmercantile.com" data-fill="email">hello@chequamegonmercantile.com</a></p>
+      <a href="mailto:hello@chequamegonmercantile.example" data-fill="email">hello@chequamegonmercantile.example</a></p>
     </div>
     <nav aria-label="Footer">
       <h2 class="footer-h">Pages</h2>
@@ -223,7 +260,7 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:0}
     <div>
       <h2 class="footer-h">Hours</h2>
       <p data-fill="hours">Monday–Saturday, 9am–6pm<br>Sunday, 10am–4pm</p>
-      <p><a href="https://facebook.com/" data-fill="facebook_url">Find us on Facebook</a></p>
+      <p><a href="https://facebook.com/" target="_blank" rel="noopener" data-fill="facebook_url">Find us on Facebook<span class="visually-hidden"> (opens in a new tab)</span></a></p>
     </div>
     <div>
       <h2 class="footer-h">Stop in</h2>
@@ -232,25 +269,9 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:0}
     </div>
   </div>
   <div class="container" style="margin-top:var(--space-6)">
-    <p>&copy; 2026 <span data-fill="business_name">Chequamegon Mercantile</span> · Site by <a href="https://buildwithbaker.io">Build with Baker</a></p>
+    <p>&copy; 2026 <span data-fill="business_name">Chequamegon Mercantile</span> · Site by <a href="https://buildwithbaker.io" target="_blank" rel="noopener">Build with Baker<span class="visually-hidden"> (opens in a new tab)</span></a></p>
   </div>
 </footer>
-<script>
-(function(){
-  var t=document.querySelector('.nav-toggle'),n=document.getElementById('site-nav');
-  if(!t||!n)return;
-  t.addEventListener('click',function(){
-    var open=t.getAttribute('aria-expanded')==='true';
-    t.setAttribute('aria-expanded',String(!open));
-    n.classList.toggle('is-open',!open);
-  });
-  document.addEventListener('keydown',function(e){
-    if(e.key==='Escape'&&t.getAttribute('aria-expanded')==='true'){
-      t.setAttribute('aria-expanded','false');n.classList.remove('is-open');t.focus();
-    }
-  });
-})();
-</script>
 <script src="../../shared/demo-theme.js" defer></script>
 </body>
 </html>

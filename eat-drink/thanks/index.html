@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'">
 <meta name="robots" content="noindex">
-<title>Contact Us — Gitche Gumee Diner, Ashland WI</title>
-<meta name="description" content="Questions, big groups, or a catering order? Call Gitche Gumee Diner at (715) 555-0126 or send us a note. Downtown Ashland, WI — no reservations needed.">
-<link rel="canonical" href="https://buildwithbaker.github.io/bwb-demos/eat-drink/contact/" data-fill="domain">
+<title>Demo form — Gitche Gumee Diner</title>
+<meta name="description" content="The thank-you page for the Gitche Gumee Diner demo form. It is a demonstration: nothing was sent.">
+<link rel="canonical" href="https://buildwithbaker.github.io/bwb-demos/eat-drink/thanks/" data-fill="domain">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Contact Us — Gitche Gumee Diner">
-<meta property="og:description" content="Call or send a note. Downtown Ashland, WI — first come, first served, big groups welcome.">
+<meta property="og:title" content="Demo form — Gitche Gumee Diner">
+<meta property="og:description" content="A demonstration form: nothing was sent.">
 <meta property="og:image" content="https://buildwithbaker.github.io/bwb-demos/eat-drink/share.jpg" data-fill="og_image">
-<meta property="og:url" content="https://buildwithbaker.github.io/bwb-demos/eat-drink/contact/" data-fill="domain">
+<meta property="og:url" content="https://buildwithbaker.github.io/bwb-demos/eat-drink/thanks/" data-fill="domain">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../../shared/tokens.css">
@@ -29,7 +29,6 @@
 /* t3 floats its header over the hero; this shell starts that header below the bar */
 .bwb-demo-shell{position:relative}
 @media print{.bwb-demo-bar{display:none}}
-.demo-form-note{font-size:var(--text-sm);background:var(--color-surface);border-left:4px solid var(--color-primary);padding:var(--space-3) var(--space-4)}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -142,11 +141,6 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
 .field-error{display:block;color:var(--color-error);font-size:var(--text-sm);margin-top:var(--space-1)}
 .field label{font-family:system-ui,sans-serif}
 .callout{background:var(--color-surface);border:1px solid var(--color-border);padding:var(--space-5)}
-
-.contact-layout{display:grid;gap:var(--space-6)}
-@media (min-width:48rem){.contact-layout{grid-template-columns:3fr 2fr;align-items:start}}
-.card{background:#FFFDF8;border:1px solid var(--color-border);border-radius:2px;padding:var(--space-6)}
-.click-trigger{color:var(--color-text-muted);font-style:italic}
 /* R-34 own section rhythm (was inherited from the kit) */
 .section{padding-block:clamp(1.75rem,1rem + 1.5vw,2.25rem)}
 /* R-32 footer phone/email links meet the 24px target size */
@@ -170,7 +164,7 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
         <li><a href="../menu/">Menu</a></li>
         <li><a href="../about/">About</a></li>
         <li><a href="../visit/">Visit</a></li>
-        <li><a href="./" aria-current="page">Contact</a></li>
+        <li><a href="../contact/">Contact</a></li>
       </ul>
     </nav>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
@@ -187,50 +181,12 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
 <main id="main">
   <section class="section">
     <div class="container">
-      <h1>Get in touch</h1>
-      <p class="prose">Fastest way to reach us is to call — someone's usually near the register. For a big group, a catering order, or a lost-and-found coffee thermos, send a note and we'll get back to you.</p>
-      <p><a class="phone-big" href="tel:+17155550126" data-fill="phone">(715) 555-0126</a></p>
-      <p class="prose" data-fill="reservation_policy"><strong>No reservations needed</strong> — we're first come, first served, and the counter moves fast. Bringing a group of eight or more? Give us a call ahead and we'll make sure there's room.</p>
-    </div>
-  </section>
-  <section class="section section--tinted">
-    <div class="container contact-layout">
-      <div class="card">
-        <h2>Send us a note</h2>
-        <p class="click-trigger">Takes about a minute — we usually reply the same day.</p>
-        <form action="../thanks/" method="get" data-fill="formspree_endpoint">
-          <div class="field">
-            <label for="f-name">Your name</label>
-            <input id="f-name" type="text" autocomplete="name" required aria-describedby="err-name">
-            <span class="field-error" id="err-name"></span>
-          </div>
-          <div class="field">
-            <label for="f-phone">Phone number</label>
-            <input id="f-phone" type="tel" autocomplete="tel" required aria-describedby="err-phone">
-            <span class="field-error" id="err-phone"></span>
-          </div>
-          <div class="field">
-            <label for="f-email">Email (optional)</label>
-            <input id="f-email" type="email" autocomplete="email" aria-describedby="err-email">
-            <span class="field-error" id="err-email"></span>
-          </div>
-          <div class="field">
-            <label for="f-message">What can we do for you?</label>
-            <textarea id="f-message" rows="5" required aria-describedby="err-message" placeholder="Example: we'd like to bring a group of 12 in on Saturday around 9am — is that doable?"></textarea>
-            <span class="field-error" id="err-message"></span>
-          </div>
-          <p class="demo-form-note"><strong>This is a demo form.</strong> Nothing you type here is sent or saved anywhere; the button just shows you the thank-you page.</p>
-          <button class="btn btn--primary" type="submit">Send us your note</button>
-        </form>
+      <div class="prose">
+        <h1>Thanks for trying the form</h1>
+        <p><strong>This is a demo site, so nothing was sent.</strong> Gitche Gumee Diner is a fictional business. What you typed was not emailed, stored or passed to anyone, and none of it is in this page's address.</p>
+        <p>On a real Build with Baker site this is where your note would be on its way to the business, with a note to say when to expect a reply.</p>
+        <p><a class="btn btn--primary" href="../contact/">Back to the form</a> <a class="btn btn--secondary" href="../">Back to the home page</a></p>
       </div>
-      <aside class="callout stack" aria-label="Diner details">
-        <h2>Or just stop in</h2>
-        <p><a class="phone-big" href="tel:+17155550126" data-fill="phone">(715) 555-0126</a></p>
-        <p><strong>Hours:</strong><br><span data-fill="hours">Monday–Saturday, 6am–2pm<br>Sunday, 7am–1pm</span></p>
-        <p><strong>Address:</strong><br><span data-fill="address">410 Gitche Gumee Avenue, Ashland, WI 54806</span></p>
-        <p><strong>Email:</strong><br><a href="mailto:hello@gitchegumeediner.example" data-fill="email">hello@gitchegumeediner.example</a></p>
-        <p><strong>Takeout &amp; delivery:</strong><br><a href="tel:+17155550126" data-fill="takeout_url">Call for takeout</a> · <a href="https://www.doordash.com/" target="_blank" rel="noopener" data-fill="delivery_url">Order delivery<span class="visually-hidden"> (opens in a new tab)</span></a></p>
-      </aside>
     </div>
   </section>
 </main>
@@ -251,8 +207,8 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
           <li><a href="../menu/">Menu</a></li>
           <li><a href="../about/">About</a></li>
           <li><a href="../visit/">Visit</a></li>
-          <li><a href="./">Contact</a></li>
-          <li><a href="../privacy/">Privacy</a></li>
+          <li><a href="../contact/">Contact</a></li>
+          <li><a href="./">Privacy</a></li>
         </ul>
       </nav>
       <div>

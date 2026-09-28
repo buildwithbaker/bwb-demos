@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'">
 <meta name="robots" content="noindex">
 <title>About Ruth &amp; the Diner — Gitche Gumee Diner, Ashland WI</title>
 <meta name="description" content="Meet Ruth Maki and the story behind Gitche Gumee Diner — scratch cooking on the Ashland waterfront since 1998. A family diner on the shore of Lake Superior.">
@@ -10,13 +11,30 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="About — Gitche Gumee Diner">
 <meta property="og:description" content="The story behind a family scratch-cooking diner on the shore of Lake Superior.">
-<meta property="og:image" content="../share.jpg" data-fill="og_image">
+<meta property="og:image" content="https://buildwithbaker.github.io/bwb-demos/eat-drink/share.jpg" data-fill="og_image">
+<meta property="og:url" content="https://buildwithbaker.github.io/bwb-demos/eat-drink/about/" data-fill="domain">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../../shared/tokens.css">
-<link rel="stylesheet" href="../../shared/demo-bar.css">
+<script src="../../shared/site.js" defer></script>
+<style>/* demo-bar: DEMO SITES ONLY - never in bwb-templates. BwB indigo + sand, styled as BwB
+   chrome rather than the fictional business's own design. Inlined (was demo-bar.css) so it
+   costs no render-blocking request. */
+.bwb-demo-bar{background:#2B4A8B;color:#EEF1F8;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:.8125rem;line-height:1.5;padding:.6rem 1rem;text-align:center;border-bottom:3px solid #C9A876}
+.bwb-demo-bar p{margin:0 auto;max-width:68rem}
+.bwb-demo-bar .bwb-demo-tag{display:inline-block;background:#C9A876;color:#16213F;font-weight:700;text-transform:uppercase;letter-spacing:.09em;font-size:.6875rem;padding:.16rem .5rem;border-radius:2px;margin-right:.5rem;vertical-align:.05em}
+.bwb-demo-bar a{color:#fff;text-decoration:underline;text-underline-offset:2px}
+.bwb-demo-bar a:hover{text-decoration-thickness:2px}
+.bwb-demo-bar a:focus-visible,.bwb-demo-bar button:focus-visible{outline:2px solid #C9A876;outline-offset:2px;border-radius:2px}
+/* t3 floats its header over the hero; this shell starts that header below the bar */
+.bwb-demo-shell{position:relative}
+@media print{.bwb-demo-bar{display:none}}
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400;1,600&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400;1,600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400;1,600&display=swap" media="print" data-async-css>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400;1,600&display=swap"></noscript>
 <style>
 /* T2 "Warm Editorial" visual system — v2.0 | overrides the shared kit per template.
    Kit (spacing / a11y / form / btn primitives) still lives in ../shared/tokens.css. */
@@ -54,10 +72,10 @@ h2{font-size:var(--text-3xl);font-weight:600}
 
 /* HERO — full-bleed photo with overlay copy */
 .hero-full{position:relative;isolation:isolate;min-height:72vh;display:grid;place-items:center;text-align:center;padding-block:var(--space-9)}
-.hero-full .hero-bg{position:absolute;inset:0;width:100%;height:100%;z-index:-2;border:none;border-radius:0}
+.hero-full .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;border:none;border-radius:0}
 .hero-full::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(rgb(26 18 12 / .58),rgb(26 18 12 / .74))}
 .hero-copy{max-width:44rem;padding-inline:var(--space-4)}
-.hero-kicker{font-family:system-ui,sans-serif;font-size:.8125rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--t2-terra-lt);margin-bottom:var(--space-3)}
+.hero-kicker{font-family:system-ui,sans-serif;font-size:.8125rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--t2-terra-lt);margin-bottom:var(--space-3);text-shadow:0 0 2px rgb(0 0 0 / .9),0 1px 4px rgb(0 0 0 / .9)}
 .hero-full h1{color:#FFF8EE;font-weight:600;font-size:clamp(2.25rem,1.4rem+3.2vw,3.75rem)}
 .hero-full p{color:#F3E9DA;font-size:var(--text-lg)}
 .hero-full .btn--secondary{color:#FFF8EE;border-color:#FFF8EE;background:transparent}
@@ -126,6 +144,13 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
 
 .about-layout{display:grid;gap:var(--space-7)}
 @media (min-width:48rem){.about-layout{grid-template-columns:2fr 3fr;align-items:start}}
+/* R-34 own section rhythm (was inherited from the kit) */
+.section{padding-block:clamp(1.75rem,1rem + 1.5vw,2.25rem)}
+/* R-32 footer phone/email links meet the 24px target size */
+.site-footer a[href^="tel:"],.site-footer a[href^="mailto:"]{display:inline-block;min-height:24px;padding-block:3px}
+/* R-11 mobile action bar, t2 dress */
+.m-bar{border-top:double 4px var(--color-border)}
+.m-bar .btn{font-family:system-ui,sans-serif}
 </style>
 </head>
 <body>
@@ -151,6 +176,11 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
     </button>
   </div>
 </header>
+<div class="m-bar" role="region" aria-label="Call us and opening hours">
+  <p class="m-bar__hours"><strong>Hours</strong> <span data-fill="todays_hours">Mon–Sat 6am–2pm · Sun 7am–1pm</span></p>
+  <a class="btn btn--primary" href="tel:+17155550126" data-fill-href="phone">Call us</a>
+  <a class="btn btn--secondary" href="../visit/#location" data-fill="directions_url">Directions</a>
+</div>
 <main id="main">
   <section class="section">
     <div class="container about-layout">
@@ -186,7 +216,7 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
         <h2 class="footer-h">Find us</h2>
         <p><span data-fill="address">410 Gitche Gumee Avenue, Ashland, WI 54806</span><br>
         <a href="tel:+17155550126" data-fill="phone">(715) 555-0126</a><br>
-        <a href="mailto:hello@gitchegumeediner.com" data-fill="email">hello@gitchegumeediner.com</a></p>
+        <a href="mailto:hello@gitchegumeediner.example" data-fill="email">hello@gitchegumeediner.example</a></p>
       </div>
       <nav aria-label="Footer">
         <h2 class="footer-h">Pages</h2>
@@ -202,28 +232,12 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
       <div>
         <h2 class="footer-h">Hours</h2>
         <p data-fill="hours">Monday–Saturday, 6am–2pm<br>Sunday, 7am–1pm</p>
-        <p><a href="https://facebook.com/" data-fill="facebook_url">Find us on Facebook</a></p>
+        <p><a href="https://facebook.com/" target="_blank" rel="noopener" data-fill="facebook_url">Find us on Facebook<span class="visually-hidden"> (opens in a new tab)</span></a></p>
       </div>
     </div>
-    <p class="footer-legal">&copy; 2026 <span data-fill="business_name">Gitche Gumee Diner</span> · Site by <a href="https://buildwithbaker.io">Build with Baker</a></p>
+    <p class="footer-legal">&copy; 2026 <span data-fill="business_name">Gitche Gumee Diner</span> · Site by <a href="https://buildwithbaker.io" target="_blank" rel="noopener">Build with Baker<span class="visually-hidden"> (opens in a new tab)</span></a></p>
   </div>
 </footer>
-<script>
-(function(){
-  var t=document.querySelector('.nav-toggle'),n=document.getElementById('site-nav');
-  if(!t||!n)return;
-  t.addEventListener('click',function(){
-    var open=t.getAttribute('aria-expanded')==='true';
-    t.setAttribute('aria-expanded',String(!open));
-    n.classList.toggle('is-open',!open);
-  });
-  document.addEventListener('keydown',function(e){
-    if(e.key==='Escape'&&t.getAttribute('aria-expanded')==='true'){
-      t.setAttribute('aria-expanded','false');n.classList.remove('is-open');t.focus();
-    }
-  });
-})();
-</script>
 <script src="../../shared/demo-theme.js" defer></script>
 </body>
 </html>

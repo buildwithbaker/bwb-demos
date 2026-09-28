@@ -78,6 +78,27 @@ a{color:var(--color-primary)}
 .cta-band{background:var(--color-primary);color:#fff;text-align:center}
 .cta-band h2,.cta-band p{color:#fff}
 .cta-band .btn--primary{background:#fff;color:var(--color-primary)}
+/* Text for screen readers only - e.g. "(opens in a new tab)" on external links. */
+.visually-hidden{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;
+  clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+
+/* MOBILE ACTION BAR. On a phone the first screen has to answer "can I call them, and are
+   they open" - so a bar pinned to the bottom of the viewport carries today's hours line, a
+   tap-to-call and the template's one main action, on every page. It is the single pinned
+   element on phones: headers stop being sticky below 48rem so the two do not stack up.
+   Desktop never sees it. Templates restyle it in their own <style> block. */
+.m-bar{display:none}
+@media (max-width:47.99rem){
+  .m-bar{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-2) var(--space-3);
+    position:fixed;left:0;right:0;bottom:0;z-index:15;
+    padding:var(--space-2) var(--space-4) calc(var(--space-2) + env(safe-area-inset-bottom,0px));
+    background:var(--color-bg);border-top:1px solid var(--color-border);box-shadow:0 -6px 18px rgb(0 0 0 / .10)}
+  .m-bar__hours{flex:1 1 100%;margin:0;font-size:var(--text-sm);line-height:1.35;color:var(--color-text)}
+  .m-bar .btn{flex:1 1 0;min-width:0;text-align:center;padding:.6rem .75rem;font-size:var(--text-base)}
+  body{padding-bottom:8rem}
+  .site-header{position:relative}
+}
+@media print{.m-bar{display:none}}
 
 /* NARROW-VIEWPORT SAFETY - nothing may claim an intrinsic width wider than its
    container. Each rule targets a cause, not the element you see spilling out.
