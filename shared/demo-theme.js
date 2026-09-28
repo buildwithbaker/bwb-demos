@@ -1,5 +1,7 @@
-/* BwB demo-theme.js — v1.0 | DEMOS ONLY, never ship on paid client sites.
-   Floating "Try your colors" panel: preset palettes + custom picker.
+/* BwB demo-theme.js — v1.1 | DEMOS ONLY, never ship on paid client sites.
+   "Try your colors" panel: preset palettes + custom picker. The button floats bottom-right
+   on wide screens; on phones it sits inside the demo disclosure bar at the top, so it never
+   covers page content or the mobile call bar pinned to the bottom of the screen.
    Applies via CSS custom properties on <html>; auto-darkens/lightens any
    picked color until it passes WCAG 4.5:1 on the page background, so a
    prospect can never make the demo unreadable. Persists across demo pages. */
@@ -93,6 +95,12 @@
     'padding:10px 16px;min-height:44px;font:600 15px/1.2 system-ui,sans-serif;color:#fff;background:#1F1B16;' +
     'border:2px solid #fff;border-radius:999px;cursor:pointer;box-shadow:0 4px 14px rgb(0 0 0/.35)}' +
     '#bwb-theme-btn:focus-visible{outline:3px solid #E5A075;outline-offset:2px}' +
+    /* phones: in the demo bar, in the page flow, not over content */
+    '@media (max-width:47.99rem){' +
+    '.bwb-demo-bar #bwb-theme-btn{position:static;display:flex;margin:8px auto 0;padding:8px 14px;font-size:14px;' +
+    'background:transparent;border:1px solid #C9A876;box-shadow:none}' +
+    '.bwb-demo-bar #bwb-theme-btn:focus-visible{outline:2px solid #C9A876}' +
+    '#bwb-theme-panel{top:16px;bottom:auto;max-height:calc(100vh - 32px);overflow:auto}}' +
     '#bwb-theme-panel{position:fixed;right:16px;bottom:72px;z-index:9999;width:min(320px,calc(100vw - 32px));' +
     'background:#FFFDF8;color:#2A211B;border:1px solid #C9BCA4;border-radius:10px;box-shadow:0 12px 32px rgb(0 0 0/.3);' +
     'padding:16px;font:400 14px/1.45 system-ui,sans-serif}' +
@@ -169,7 +177,8 @@
     panel.querySelector('#bwb-theme-picker').addEventListener('input', function (e) { apply(e.target.value); });
     panel.querySelector('#bwb-theme-reset').addEventListener('click', reset);
 
-    document.body.appendChild(btn);
+    var bar = document.querySelector('.bwb-demo-bar');
+    (bar || document.body).appendChild(btn);
     document.body.appendChild(panel);
 
     /* re-apply a saved choice as the prospect browses page to page */

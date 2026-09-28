@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'">
 <meta name="robots" content="noindex">
 <title>Privacy — Keweenaw Point Builders, Ashland WI</title>
 <meta name="description" content="How Keweenaw Point Builders handles the information you send through this website — plain English, no tracking, no ads.">
@@ -10,13 +11,30 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Privacy — Keweenaw Point Builders">
 <meta property="og:description" content="Plain-English privacy policy: form messages go straight to us, no ads, no tracking.">
-<meta property="og:image" content="../share.jpg" data-fill="og_image">
+<meta property="og:image" content="https://buildwithbaker.github.io/bwb-demos/trades/share.jpg" data-fill="og_image">
+<meta property="og:url" content="https://buildwithbaker.github.io/bwb-demos/trades/privacy/" data-fill="domain">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../../shared/tokens.css">
-<link rel="stylesheet" href="../../shared/demo-bar.css">
+<script src="../../shared/site.js" defer></script>
+<style>/* demo-bar: DEMO SITES ONLY - never in bwb-templates. BwB indigo + sand, styled as BwB
+   chrome rather than the fictional business's own design. Inlined (was demo-bar.css) so it
+   costs no render-blocking request. */
+.bwb-demo-bar{background:#2B4A8B;color:#EEF1F8;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:.8125rem;line-height:1.5;padding:.6rem 1rem;text-align:center;border-bottom:3px solid #C9A876}
+.bwb-demo-bar p{margin:0 auto;max-width:68rem}
+.bwb-demo-bar .bwb-demo-tag{display:inline-block;background:#C9A876;color:#16213F;font-weight:700;text-transform:uppercase;letter-spacing:.09em;font-size:.6875rem;padding:.16rem .5rem;border-radius:2px;margin-right:.5rem;vertical-align:.05em}
+.bwb-demo-bar a{color:#fff;text-decoration:underline;text-underline-offset:2px}
+.bwb-demo-bar a:hover{text-decoration-thickness:2px}
+.bwb-demo-bar a:focus-visible,.bwb-demo-bar button:focus-visible{outline:2px solid #C9A876;outline-offset:2px;border-radius:2px}
+/* t3 floats its header over the hero; this shell starts that header below the bar */
+.bwb-demo-shell{position:relative}
+@media print{.bwb-demo-bar{display:none}}
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&display=swap" media="print" data-async-css>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&display=swap"></noscript>
 <style>
 /* T1 "Bold Industrial" visual system — v2.0 | overrides the shared kit per template.
    Kit (spacing / a11y / form / btn primitives) still lives in ../shared/tokens.css. */
@@ -47,8 +65,7 @@ h2{font-size:var(--text-3xl)}
 .header-phone{font-family:'Oswald',Arial,sans-serif;font-weight:600;font-size:var(--text-lg);color:var(--color-accent);text-decoration:none;white-space:nowrap}
 .nav-toggle{display:none;align-items:center;gap:var(--space-2);min-height:44px;padding:var(--space-2) var(--space-3);font:inherit;font-weight:600;color:#fff;background:none;border:1px solid #4E555C;border-radius:0;cursor:pointer}
 .nav-toggle:focus-visible{outline-color:var(--color-accent)}
-@media (max-width:55.99rem){.header-phone{display:none}}
-@media (max-width:47.99rem){
+@media (max-width:55.99rem){
   .nav-toggle{display:inline-flex}
   .site-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--t1-ink);border-bottom:1px solid #33383D;box-shadow:0 8px 16px rgb(0 0 0 / .35)}
   .site-nav.is-open{display:block}
@@ -114,6 +131,16 @@ figcaption{font-family:'Oswald',Arial,sans-serif;font-size:var(--text-sm);text-t
 .callout{background:var(--color-surface);border:none;border-left:8px solid var(--t1-ink);border-radius:0;padding:var(--space-5)}
 .cred-list{padding-left:1.2em}
 .cred-list li{margin-bottom:var(--space-2)}
+/* R-34 own section rhythm (was inherited from the kit) */
+.section{padding-block:clamp(2.5rem,1rem + 3vw,3.5rem)}
+/* R-11 mobile action bar, t1 dress: ink bar, yellow keel */
+.m-bar{background:var(--t1-ink);border-top:4px solid var(--color-accent)}
+.m-bar__hours,.m-bar__hours strong{color:#DFE3E7}
+.m-bar .btn--primary{background:var(--color-accent);color:var(--t1-ink)}
+.m-bar .btn--secondary{color:#fff;border-color:#fff}
+.m-bar .btn:focus-visible{outline-color:var(--color-accent)}
+@media (max-width:47.99rem){.site-header{position:relative}}
+@media (max-width:29.99rem){.wordmark{font-size:var(--text-lg)}.header-phone{font-size:var(--text-base)}}
 </style>
 </head>
 <body>
@@ -140,6 +167,11 @@ figcaption{font-family:'Oswald',Arial,sans-serif;font-size:var(--text-sm);text-t
     </button>
   </div>
 </header>
+<div class="m-bar" role="region" aria-label="Call us and opening hours">
+  <p class="m-bar__hours"><strong>Hours</strong> <span data-fill="hours">Monday–Friday, 7am–5pm<br>Weekends by appointment</span></p>
+  <a class="btn btn--primary" href="tel:+17155550148" data-fill-href="phone">Call us</a>
+  <a class="btn btn--secondary" href="../contact/">Free estimate</a>
+</div>
 <main id="main">
   <section class="section">
     <div class="container">
@@ -148,16 +180,16 @@ figcaption{font-family:'Oswald',Arial,sans-serif;font-size:var(--text-sm);text-t
         <p>Here's the plain-English version, because that's the only kind worth reading. <span data-fill="business_name">Keweenaw Point Builders</span> runs a small website. We're not in the data business, and we collect as little as we can.</p>
 
         <h2>The contact form</h2>
-        <p>When you send us a message through the form on this site, it's delivered to our inbox by a service called Formspree, which simply passes it along. We use what you send only to get back to you about your project. We don't sell it, rent it, or hand it to anyone who isn't helping us answer you.</p>
+        <p>This is a demo site, so the form here sends nothing. What you type is not delivered, stored or put in the page address. On a real site built from this template, messages go to the business's inbox through a form service and are used only to reply.</p>
 
         <h2>No ads, no tracking</h2>
         <p>We don't run ads. We don't use advertising cookies, tracking pixels, or third-party analytics that follow you around the web. There's no account to create and nothing to log into. Your browser keeps the ordinary records any website leaves behind, but we're not watching them.</p>
 
         <h2>Getting your information removed</h2>
-        <p>If you've contacted us and you'd like us to delete what you sent, just ask. Email <a href="mailto:dale@keweenawpointbuilders.com" data-fill="email">dale@keweenawpointbuilders.com</a> and we'll remove it from our inbox and records. No forms, no hoops.</p>
+        <p>If you've contacted us and you'd like us to delete what you sent, just ask. Email <a href="mailto:dale@keweenawpointbuilders.example" data-fill="email">dale@keweenawpointbuilders.example</a> and we'll remove it from our inbox and records. No forms, no hoops.</p>
 
         <h2>Questions</h2>
-        <p>If anything here is unclear, email <a href="mailto:dale@keweenawpointbuilders.com" data-fill="email">dale@keweenawpointbuilders.com</a> or call the number in the footer. A real person will get back to you.</p>
+        <p>If anything here is unclear, email <a href="mailto:dale@keweenawpointbuilders.example" data-fill="email">dale@keweenawpointbuilders.example</a> or call the number in the footer. A real person will get back to you.</p>
 
         <p style="color:var(--color-text-muted)"><small>Last updated July 2026.</small></p>
       </div>
@@ -170,7 +202,7 @@ figcaption{font-family:'Oswald',Arial,sans-serif;font-size:var(--text-sm);text-t
       <h2 class="footer-h" data-fill="business_name">Keweenaw Point Builders</h2>
       <p><span data-fill="address">3300 Keweenaw Point Road, Ashland, WI 54806</span><br>
       <a href="tel:+17155550148" data-fill="phone">(715) 555-0148</a><br>
-      <a href="mailto:dale@keweenawpointbuilders.com" data-fill="email">dale@keweenawpointbuilders.com</a></p>
+      <a href="mailto:dale@keweenawpointbuilders.example" data-fill="email">dale@keweenawpointbuilders.example</a></p>
       <p data-fill="licenses_insurance">Licensed &amp; insured — WI Dwelling Contractor</p>
     </div>
     <nav aria-label="Footer">
@@ -186,7 +218,7 @@ figcaption{font-family:'Oswald',Arial,sans-serif;font-size:var(--text-sm);text-t
     <div>
       <h2 class="footer-h">Hours</h2>
       <p data-fill="hours">Monday–Friday, 7am–5pm<br>Weekends by appointment</p>
-      <p><a href="https://facebook.com/" data-fill="facebook_url">Find us on Facebook</a></p>
+      <p><a href="https://facebook.com/" target="_blank" rel="noopener" data-fill="facebook_url">Find us on Facebook<span class="visually-hidden"> (opens in a new tab)</span></a></p>
     </div>
     <div>
       <h2 class="footer-h">Ready when you are</h2>
@@ -195,25 +227,9 @@ figcaption{font-family:'Oswald',Arial,sans-serif;font-size:var(--text-sm);text-t
     </div>
   </div>
   <div class="container" style="margin-top:var(--space-6)">
-    <p>&copy; 2026 <span data-fill="business_name">Keweenaw Point Builders</span> · Site by <a href="https://buildwithbaker.io">Build with Baker</a></p>
+    <p>&copy; 2026 <span data-fill="business_name">Keweenaw Point Builders</span> · Site by <a href="https://buildwithbaker.io" target="_blank" rel="noopener">Build with Baker<span class="visually-hidden"> (opens in a new tab)</span></a></p>
   </div>
 </footer>
-<script>
-(function(){
-  var t=document.querySelector('.nav-toggle'),n=document.getElementById('site-nav');
-  if(!t||!n)return;
-  t.addEventListener('click',function(){
-    var open=t.getAttribute('aria-expanded')==='true';
-    t.setAttribute('aria-expanded',String(!open));
-    n.classList.toggle('is-open',!open);
-  });
-  document.addEventListener('keydown',function(e){
-    if(e.key==='Escape'&&t.getAttribute('aria-expanded')==='true'){
-      t.setAttribute('aria-expanded','false');n.classList.remove('is-open');t.focus();
-    }
-  });
-})();
-</script>
 <script src="../../shared/demo-theme.js" defer></script>
 </body>
 </html>

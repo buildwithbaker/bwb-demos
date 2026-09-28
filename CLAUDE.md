@@ -10,6 +10,16 @@ The four public demonstration sites built from the `bwb-templates` kit: `trades`
   loaded on every demo page. **Demo-only. Never add it to `bwb-templates`.**
 - `<meta name="robots" content="noindex">` is on every page and stays there. These are
   sales props, not sites that should rank. **Demo-only. Never add it to `bwb-templates`.**
+- `shared/site.js` - the page script, mirrored from `bwb-templates/shared/` like tokens.css.
+- The demo disclosure bar's CSS is **inlined** in each page's `<head>` (a second `<style>`
+  block after the template's), so it costs no render-blocking request. Demo-only.
+- **Demo forms never send anything.** Each demo's one form posts `get` to its own
+  `<demo>/thanks/` page and none of its controls has a `name`, so even with JavaScript off
+  nothing typed reaches a server or the URL. The demo CSP says `form-action 'self'`. Do not
+  restore the template's Formspree action here. `thanks/` is demo-only, built from the
+  demo's privacy page.
+- Each demo has its own `favicon.svg` (its initial on its accent colour), not the kit
+  placeholder.
 
 ## Deploy
 - GitHub Pages serves this repo as a project site. There is no CNAME and no build step -
