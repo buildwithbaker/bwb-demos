@@ -1,0 +1,461 @@
+{
+ "@390": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "eat-drink/@390": {
+  "errors": [],
+  "failed": [],
+  "axe": [
+   {
+    "id": "target-size",
+    "impact": "serious",
+    "n": 2,
+    "targets": [
+     ".footer-grid > div:nth-child(1) > p > a[href=\"tel:+17155550126\"][data-fill=\"phone\"]",
+     "a[data-fill=\"email\"]"
+    ]
+   }
+  ],
+  "hscroll": 0
+ },
+ "eat-drink/about/@390": {
+  "errors": [],
+  "failed": [],
+  "axe": [
+   {
+    "id": "target-size",
+    "impact": "serious",
+    "n": 2,
+    "targets": [
+     ".footer-grid > div:nth-child(1) > p > a[href=\"tel:+17155550126\"][data-fill=\"phone\"]",
+     "a[data-fill=\"email\"]"
+    ]
+   }
+  ],
+  "hscroll": 0
+ },
+ "eat-drink/contact/@390": {
+  "errors": [],
+  "failed": [],
+  "axe": [
+   {
+    "id": "target-size",
+    "impact": "serious",
+    "n": 2,
+    "targets": [
+     ".footer-grid > div:nth-child(1) > p > a[data-fill=\"phone\"][href=\"tel:+17155550126\"]",
+     "div:nth-child(1) > p > a[data-fill=\"email\"]"
+    ]
+   }
+  ],
+  "hscroll": 0
+ },
+ "eat-drink/menu/@390": {
+  "errors": [],
+  "failed": [],
+  "axe": [
+   {
+    "id": "target-size",
+    "impact": "serious",
+    "n": 2,
+    "targets": [
+     "a[href=\"tel:+17155550126\"]",
+     "a[data-fill=\"email\"]"
+    ]
+   }
+  ],
+  "hscroll": 0
+ },
+ "eat-drink/privacy/@390": {
+  "errors": [],
+  "failed": [],
+  "axe": [
+   {
+    "id": "target-size",
+    "impact": "serious",
+    "n": 2,
+    "targets": [
+     "a[href=\"tel:+17155550126\"]",
+     ".footer-grid > div:nth-child(1) > p > a[data-fill=\"email\"]"
+    ]
+   }
+  ],
+  "hscroll": 0
+ },
+ "eat-drink/visit/@390": {
+  "errors": [],
+  "failed": [],
+  "axe": [
+   {
+    "id": "target-size",
+    "impact": "serious",
+    "n": 2,
+    "targets": [
+     "div:nth-child(1) > p > a[data-fill=\"phone\"][href=\"tel:+17155550126\"]",
+     "a[data-fill=\"email\"]"
+    ]
+   }
+  ],
+  "hscroll": 0
+ },
+ "shop-office/@390": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "shop-office/contact/@390": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "shop-office/gallery/@390": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "shop-office/privacy/@390": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "shop-office/story/@390": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "shop-office/visit/@390": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "stay-play/@390": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "stay-play/about/@390": {
+  "errors": [],
+  "failed": [],
+  "axe": [
+   {
+    "id": "color-contrast",
+    "impact": "serious",
+    "n": 1,
+    "targets": [
+     ".container > p > a[href=\"tel:+17155550163\"][data-fill=\"phone\"]"
+    ]
+   }
+  ],
+  "hscroll": 0
+ },
+ "stay-play/area/@390": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "stay-play/book/@390": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "stay-play/cabins/@390": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "stay-play/privacy/@390": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "stay-play/rates/@390": {
+  "errors": [],
+  "failed": [],
+  "axe": [
+   {
+    "id": "scrollable-region-focusable",
+    "impact": "serious",
+    "n": 1,
+    "targets": [
+     ".rate-table-wrap"
+    ]
+   }
+  ],
+  "hscroll": 0
+ },
+ "trades/@390": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "trades/about/@390": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "trades/contact/@390": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "trades/privacy/@390": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "trades/services/@390": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "trades/work/@390": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "@1440": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "eat-drink/@1440": {
+  "errors": [],
+  "failed": [],
+  "axe": [
+   {
+    "id": "target-size",
+    "impact": "serious",
+    "n": 2,
+    "targets": [
+     ".footer-grid > div:nth-child(1) > p > a[href=\"tel:+17155550126\"][data-fill=\"phone\"]",
+     "a[data-fill=\"email\"]"
+    ]
+   }
+  ],
+  "hscroll": 0
+ },
+ "eat-drink/about/@1440": {
+  "errors": [],
+  "failed": [],
+  "axe": [
+   {
+    "id": "target-size",
+    "impact": "serious",
+    "n": 2,
+    "targets": [
+     ".footer-grid > div:nth-child(1) > p > a[href=\"tel:+17155550126\"][data-fill=\"phone\"]",
+     "a[data-fill=\"email\"]"
+    ]
+   }
+  ],
+  "hscroll": 0
+ },
+ "eat-drink/contact/@1440": {
+  "errors": [],
+  "failed": [],
+  "axe": [
+   {
+    "id": "target-size",
+    "impact": "serious",
+    "n": 2,
+    "targets": [
+     ".footer-grid > div:nth-child(1) > p > a[data-fill=\"phone\"][href=\"tel:+17155550126\"]",
+     "div:nth-child(1) > p > a[data-fill=\"email\"]"
+    ]
+   }
+  ],
+  "hscroll": 0
+ },
+ "eat-drink/menu/@1440": {
+  "errors": [],
+  "failed": [],
+  "axe": [
+   {
+    "id": "target-size",
+    "impact": "serious",
+    "n": 2,
+    "targets": [
+     "a[href=\"tel:+17155550126\"]",
+     "a[data-fill=\"email\"]"
+    ]
+   }
+  ],
+  "hscroll": 0
+ },
+ "eat-drink/privacy/@1440": {
+  "errors": [],
+  "failed": [],
+  "axe": [
+   {
+    "id": "target-size",
+    "impact": "serious",
+    "n": 2,
+    "targets": [
+     "a[href=\"tel:+17155550126\"]",
+     ".footer-grid > div:nth-child(1) > p > a[data-fill=\"email\"]"
+    ]
+   }
+  ],
+  "hscroll": 0
+ },
+ "eat-drink/visit/@1440": {
+  "errors": [],
+  "failed": [],
+  "axe": [
+   {
+    "id": "target-size",
+    "impact": "serious",
+    "n": 2,
+    "targets": [
+     "div:nth-child(1) > p > a[data-fill=\"phone\"][href=\"tel:+17155550126\"]",
+     "a[data-fill=\"email\"]"
+    ]
+   }
+  ],
+  "hscroll": 0
+ },
+ "shop-office/@1440": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "shop-office/contact/@1440": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "shop-office/gallery/@1440": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "shop-office/privacy/@1440": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "shop-office/story/@1440": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "shop-office/visit/@1440": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "stay-play/@1440": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "stay-play/about/@1440": {
+  "errors": [],
+  "failed": [],
+  "axe": [
+   {
+    "id": "color-contrast",
+    "impact": "serious",
+    "n": 1,
+    "targets": [
+     ".container > p > a[href=\"tel:+17155550163\"][data-fill=\"phone\"]"
+    ]
+   }
+  ],
+  "hscroll": 0
+ },
+ "stay-play/area/@1440": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "stay-play/book/@1440": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "stay-play/cabins/@1440": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "stay-play/privacy/@1440": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "stay-play/rates/@1440": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "trades/@1440": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "trades/about/@1440": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "trades/contact/@1440": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "trades/privacy/@1440": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "trades/services/@1440": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ },
+ "trades/work/@1440": {
+  "errors": [],
+  "failed": [],
+  "axe": [],
+  "hscroll": 0
+ }
+}
