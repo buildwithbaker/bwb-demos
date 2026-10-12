@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'">
 <meta name="robots" content="noindex">
 <title>Superior Pines Cabins &amp; Charters — Lakeside Cabins near Bayfield, WI</title>
 <meta name="description" content="Three log cabins and guided Lake Superior fishing charters on the Bayfield shore near the Apostle Islands. Family-run — dock, fire ring, and lake trout out the door.">
@@ -28,13 +28,14 @@
 .bwb-demo-bar a:focus-visible,.bwb-demo-bar button:focus-visible{outline:2px solid #C9A876;outline-offset:2px;border-radius:2px}
 /* t3 floats its header over the hero; this shell starts that header below the bar */
 .bwb-demo-shell{position:relative}
+/* "Try your colors" lives in the bar at every width, so its space is there at first
+   paint; demo-theme.js only wires it up and shows it (hidden, not removed, until then) */
+#bwb-theme-btn{display:flex;align-items:center;gap:8px;margin:8px auto 0;padding:8px 14px;min-height:44px;font:600 14px/1.2 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#fff;background:transparent;border:1px solid #C9A876;border-radius:999px;cursor:pointer;visibility:hidden}
+.bwb-theme-ready #bwb-theme-btn{visibility:visible}
 @media print{.bwb-demo-bar{display:none}}
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Marcellus&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Marcellus&display=swap" media="print" data-async-css>
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Marcellus&display=swap"></noscript>
+<link rel="preload" href="../shared/fonts/marcellus-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../shared/fonts/jost-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <!-- LodgingBusiness JSON-LD. Values below mirror data-fill keys noted in FILL-MAP.md;
      the intake-merge script updates these alongside the visible NAP. -->
 <script type="application/ld+json">
@@ -101,6 +102,12 @@ h1,h2,h3{font-family:"Marcellus","Times New Roman",serif;font-weight:400;letter-
 /* buttons — full pill, t3's signature */
 .btn{border-radius:999px;padding:.75rem 1.6rem;font-weight:500;letter-spacing:.04em}
 .btn--secondary{border-width:1px}
+.header-call{padding:.55rem 1.2rem}
+/* phones: Call keeps the header slot; Check dates stays in the hero, the nav and the footer */
+@media (max-width:47.99rem){.header-bar>.btn--primary{display:none}}
+/* the long business name keeps a usable width; Menu wraps to a second row instead
+   of squeezing the name into a four-line column */
+@media (max-width:47.99rem){.header-bar>.wordmark{flex-basis:9rem}}
 /* imagery + cards — borderless, soft, large radius */
 .ph{display:block;width:100%;height:auto;border:0;border-radius:24px;box-shadow:var(--shadow-soft)}
 .card{background:#fff;border:0;border-radius:24px;box-shadow:var(--shadow-soft);padding:var(--space-6)}
@@ -190,8 +197,12 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
 .nav-toggle{border-color:rgb(255 255 255 / .65)}
 .site-header .btn--primary{background:#fff;color:var(--color-primary-dark)}
 .site-header .btn--primary:hover{background:#E4EFEC}
+.site-header .header-call{color:#fff;border-color:#fff;background:rgb(10 34 44 / .35)}
 .site-header :focus-visible{outline-color:#fff}
 @media (max-width:47.99rem){
+  /* phones: the header sits above the photo, not over it. Floating, a wrapped header
+     ran into the hero heading on narrow screens. */
+  .site-header{position:relative;background:#12313F}
   .site-header .site-nav{background:#12313F;border-bottom:0;box-shadow:0 20px 40px rgb(0 0 0 / .3)}
   .site-header .site-nav a{color:#fff}
   .wordmark{font-size:1.05rem}
@@ -203,6 +214,7 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
 <a class="skip-link" href="#main">Skip to content</a>
 <aside class="bwb-demo-bar">
   <p><span class="bwb-demo-tag">Demo</span>Superior Pines Cabins &amp; Charters is a fictional business. This is a sample site by <a href="https://buildwithbaker.io">Build with Baker</a>. Contact details are not real and the photos are AI-generated.</p>
+  <button type="button" id="bwb-theme-btn" aria-expanded="false" aria-controls="bwb-theme-panel"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="7" cy="7" r="3" fill="#E5A075"/><circle cx="14" cy="9" r="3" fill="#8FBF9F"/><circle cx="9" cy="14" r="3" fill="#9DB8D2"/></svg>Try your colors</button>
 </aside>
 <div class="bwb-demo-shell">
 <header class="site-header">
@@ -218,6 +230,7 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
         <li><a href="book/">Book</a></li>
       </ul>
     </nav>
+    <a class="btn btn--secondary header-call" href="tel:+17155550163" data-fill-href="phone">Call</a>
     <a class="btn btn--primary" href="book/">Check dates</a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
       <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M2 4h16M2 10h16M2 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -225,11 +238,6 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
     </button>
   </div>
 </header>
-<div class="m-bar" role="region" aria-label="Call us and opening hours">
-  <p class="m-bar__hours"><strong>Season &amp; hours</strong> <span data-fill="hours">Cabins year-round · Charters May–October<br>Call or message 8am–8pm daily</span></p>
-  <a class="btn btn--primary" href="tel:+17155550163" data-fill-href="phone">Call us</a>
-  <a class="btn btn--secondary" href="book/">Check dates</a>
-</div>
 <main id="main">
   <!-- HERO (photo-forward, full-bleed) -->
   <section class="hero-full" aria-label="Superior Pines Cabins &amp; Charters">
