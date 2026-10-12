@@ -4,13 +4,6 @@
 (function () {
   'use strict';
 
-  /* Web fonts load without blocking first render: the stylesheet ships as
-     media="print" and is switched on here. A <noscript> copy covers JS-off. */
-  var sheets = document.querySelectorAll('link[data-async-css]');
-  for (var i = 0; i < sheets.length; i++) {
-    sheets[i].media = 'all';
-  }
-
   /* Mobile menu toggle */
   var t = document.querySelector('.nav-toggle'), n = document.getElementById('site-nav');
   if (!t || !n) return;

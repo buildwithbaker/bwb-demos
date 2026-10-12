@@ -2,6 +2,22 @@
    v1.0 | 2026-07-09 | grounded in KB web-dev/website-design-and-build (M2/M3/M4)
    Per-client: override the THEME block only. Never edit the kit per client. */
 
+/* WEB FONTS. Self-hosted latin subsets from Fontsource 5.3.0 (SIL OFL 1.1; the licences
+   sit next to the files in shared/fonts/). They used to load from Google Fonts after first
+   paint, and the swap reflowed the header (2026-10-12 audit, finding 1: CLS up to 0.33).
+   font-display:optional plus a preload on each page means a face that is not ready by
+   first paint is used from the next page view on, never swapped in under the reader.
+   A browser downloads only the faces a page actually uses. */
+@font-face{font-family:"Oswald";font-style:normal;font-weight:200 700;font-display:optional;src:url(fonts/oswald-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Fraunces";font-style:normal;font-weight:100 900;font-display:optional;src:url(fonts/fraunces-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Fraunces";font-style:italic;font-weight:100 900;font-display:optional;src:url(fonts/fraunces-latin-wght-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Jost";font-style:normal;font-weight:100 900;font-display:optional;src:url(fonts/jost-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Jost";font-style:italic;font-weight:100 900;font-display:optional;src:url(fonts/jost-latin-wght-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Marcellus";font-style:normal;font-weight:400;font-display:optional;src:url(fonts/marcellus-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Montserrat";font-style:normal;font-weight:100 900;font-display:optional;src:url(fonts/montserrat-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Karla";font-style:normal;font-weight:200 800;font-display:optional;src:url(fonts/karla-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Karla";font-style:italic;font-weight:200 800;font-display:optional;src:url(fonts/karla-latin-wght-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
 :root{
   /* THEME - per-template defaults; per-client overrides go here */
   --color-primary: #2F5D3A;        /* T1 pine (T2 #B4552D terracotta, T3 #23617A lake, T4 #5B4A68 plum) */
@@ -82,23 +98,14 @@ a{color:var(--color-primary)}
 .visually-hidden{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;
   clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
 
-/* MOBILE ACTION BAR. On a phone the first screen has to answer "can I call them, and are
-   they open" - so a bar pinned to the bottom of the viewport carries today's hours line, a
-   tap-to-call and the template's one main action, on every page. It is the single pinned
-   element on phones: headers stop being sticky below 48rem so the two do not stack up.
-   Desktop never sees it. Templates restyle it in their own <style> block. */
-.m-bar{display:none}
+/* PHONE HEADER. Below 48rem the header scrolls away with the page instead of
+   sticking: at large text sizes a pinned header eats the screen and hides focused
+   controls (SC 2.4.11). Each template keeps its one main action, Call, as a visible
+   button in the header at every width (KB module-03, mobile nav). The bottom action
+   bar that used to carry it was removed on 2026-10-12. */
 @media (max-width:47.99rem){
-  .m-bar{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-2) var(--space-3);
-    position:fixed;left:0;right:0;bottom:0;z-index:15;
-    padding:var(--space-2) var(--space-4) calc(var(--space-2) + env(safe-area-inset-bottom,0px));
-    background:var(--color-bg);border-top:1px solid var(--color-border);box-shadow:0 -6px 18px rgb(0 0 0 / .10)}
-  .m-bar__hours{flex:1 1 100%;margin:0;font-size:var(--text-sm);line-height:1.35;color:var(--color-text)}
-  .m-bar .btn{flex:1 1 0;min-width:0;text-align:center;padding:.6rem .75rem;font-size:var(--text-base)}
-  body{padding-bottom:8rem}
   .site-header{position:relative}
 }
-@media print{.m-bar{display:none}}
 
 /* NARROW-VIEWPORT SAFETY - nothing may claim an intrinsic width wider than its
    container. Each rule targets a cause, not the element you see spilling out.
@@ -111,16 +118,31 @@ a{color:var(--color-primary)}
    3. Flex items default to `min-width:auto`, so the header bar cannot shrink below the
       sum of its children's minimums. Rather than force the document wider it now wraps -
       but only when it truly has to. See the mobile block below for how. */
-p,li,dd,address,blockquote,figcaption{overflow-wrap:anywhere}
+/* Headings, labels and links joined this list on 2026-10-12: at 200% text one long word
+   in a heading ("Tub-to-shower", "information") pushed a phone page 30 to 90 px wide. */
+p,li,dd,address,blockquote,figcaption,h1,h2,h3,label,a{overflow-wrap:anywhere}
 /* ...but never on navigation. A nav label is one or two short words and must stay whole;
    `anywhere` would hyphen-lessly split "Home" into "Ho/me" the moment the bar gets tight. */
 .site-nav li,.site-nav a{overflow-wrap:normal}
+/* ...nor on a header control. The header bar reads each control's min-content, and
+   `anywhere` would let it squeeze "Call" into "Ca/ll". */
+.header-bar .btn,.header-phone,.nav-toggle{overflow-wrap:normal}
 /* The wordmark gets `break-word`, NOT `anywhere`. `anywhere` would drop its min-content to
    a single character - and min-content is exactly what the header's line-breaking reads
    below, so the bar would stack the business name into a one-letter column. `break-word`
    still breaks a pathologically long name rather than letting it spill; it just does not
    lie about the name's intrinsic width. */
 .wordmark{overflow-wrap:break-word}
+/* Cards and form fields are often grid items, whose floor is their min-content. A date
+   input or a textarea at 200% text has a wide intrinsic size, and it pushed the
+   stay-play inquiry card to 518 px on a 375 px phone. Both may shrink; the controls
+   inside are width:100%. */
+.card,.field{min-width:0}
+
+/* At every width the header bar wraps rather than push the page sideways: at 200%
+   text the desktop bar used to run to 1381 px on a 1280 px screen. A bar that fits
+   on one row is unchanged. */
+.header-bar{flex-wrap:wrap}
 
 /* THE MOBILE HEADER BAR. Scoped to the breakpoint every template already switches its
    header at, so the desktop bar is left exactly as it was - it never overflowed.
@@ -133,8 +155,7 @@ p,li,dd,address,blockquote,figcaption{overflow-wrap:anywhere}
   .header-bar{flex-wrap:wrap}
   /* last-resort backstop for a single child wider than the whole bar */
   .header-bar>*{min-width:0}
-  /* No max-width here: T2 sets its own `calc(100% - 6rem)` to reserve room for a toggle
-     it positions absolutely, and overriding that lays the two on top of each other. */
+  /* No max-width here: the wordmark's min-content basis already lets it wrap. */
   .header-bar>.wordmark{flex:1 1 min-content}
   /* The CTA takes its minimum and does not compete for the spare pixels: on a phone there
      are few of them and they are worth more to the business name than to a button that

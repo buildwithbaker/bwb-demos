@@ -6,6 +6,8 @@ The four public demonstration sites built from the `bwb-templates` kit: `trades`
 ## Structure
 - One folder per demo, each a full multi-page static site (no build step).
 - `shared/tokens.css` - design tokens, mirrored from `bwb-templates/shared/`.
+- `shared/fonts/` - the self-hosted web fonts and their OFL licenses, mirrored from
+  `bwb-templates/shared/fonts/`.
 - `shared/demo-theme.js` - the theme-swap widget (8 presets, picker, auto-contrast guard)
   loaded on every demo page. **Demo-only. Never add it to `bwb-templates`.**
 - `<meta name="robots" content="noindex">` is on every page and stays there. These are
@@ -13,6 +15,9 @@ The four public demonstration sites built from the `bwb-templates` kit: `trades`
 - `shared/site.js` - the page script, mirrored from `bwb-templates/shared/` like tokens.css.
 - The demo disclosure bar's CSS is **inlined** in each page's `<head>` (a second `<style>`
   block after the template's), so it costs no render-blocking request. Demo-only.
+- The "Try your colors" button is markup inside each page's demo bar, styled by that
+  inlined CSS, so its space exists at first paint. `demo-theme.js` (v1.2) only wires it
+  up. Do not go back to inserting it from the script: that shifted the page by 52 px.
 - **Demo forms never send anything.** Each demo's one form posts `get` to its own
   `<demo>/thanks/` page and none of its controls has a `name`, so even with JavaScript off
   nothing typed reaches a server or the URL. The demo CSP says `form-action 'self'`. Do not
@@ -38,12 +43,16 @@ hand-patched - or the two drift apart.
 1. `git checkout main && git pull origin main` - start from an up-to-date main
 2. `git checkout -b <type>/<slug>` - branch BEFORE staging, so local `main` never diverges
 3. edit, then `git add -- <explicit paths>` - never `git add -A`
-4. `git commit -m "<message>"`
+4. `git commit -m "<message>"` - Conventional Commits (`fix: ...`, `docs: ...`), subject
+   50 characters or fewer
 5. `git push -u origin <branch>`
 6. `gh pr create --base main --fill`
-7. `gh pr checks <branch> --watch` - wait for the required checks
+7. Re-test the changed pages before merging. This repo has no CI workflow and no
+   required status checks, so `gh pr checks` reports "no checks reported" and that is a
+   real absence, not something to wait for. The re-test is the gate.
 8. `gh pr merge <branch> --squash --delete-branch`
 9. `git checkout main && git pull origin main`
 
-Never merge while a required check is failing or pending, and never disable a check to
-force a merge through - stop and report instead.
+Never merge while the re-test is failing. If a check workflow is added later, never merge
+while it is failing or pending, and never disable it to force a merge through - stop and
+report instead.
