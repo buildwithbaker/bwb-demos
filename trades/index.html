@@ -60,6 +60,8 @@
   "founder": {"@type": "Person", "name": "Dale Kinnunen"}
 }
 </script>
+<!-- Seasons and closed days for the "open now" line (shared/hours.js); merge.py writes it from hours_rules -->
+<script type="application/json" id="hours-rules">{"seasons": [], "closed": []}</script>
 <style>
 /* T1 "Bold Industrial" visual system — v2.0 | overrides the shared kit per template.
    Kit (spacing / a11y / form / btn primitives) still lives in ../shared/tokens.css. */
@@ -111,6 +113,8 @@ h2{font-size:var(--text-3xl)}
    text that replaces "Hours" can never re-wrap the line under it (no layout shift). */
 /* plain-language price line on the service cards (Gate 2 item 8) */
 .price-line{font-size:var(--text-sm);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+/* short screens (phone landscape): hero copy tighter so the hours line stays in the first screen (Test Master P2-2) */
+@media (max-height:31.25rem){main > .section:first-child{padding-block-start:var(--space-4)}.hero > div:first-child{padding-block:0}.hero h1{font-size:1.875rem}.hero h1::before{margin-bottom:var(--space-2)}}
 .hero-hours{margin-block:var(--space-4) var(--space-5)}
 .hero-hours .hours-now{display:block;font-family:'Oswald',Arial,sans-serif;font-weight:500;font-size:var(--text-sm);letter-spacing:.08em;text-transform:uppercase;color:var(--color-primary)}
 

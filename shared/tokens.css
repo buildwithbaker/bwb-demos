@@ -111,6 +111,9 @@ a{color:var(--color-primary)}
   html.pin-header .site-header{position:sticky;top:0;z-index:10}
   html.pin-header{scroll-padding-top:calc(var(--pin-h, 0px) + .5rem)}
 }
+/* From 48rem up the same quarter-of-the-screen cap, the other way round (2026-10-23, Test Master
+   P2-5): a template's own sticky header lets go when site.js finds it too tall. */
+@media (min-width:48rem){html.header-unpin .site-header{position:relative}}
 
 /* NARROW-VIEWPORT SAFETY - nothing may claim an intrinsic width wider than its
    container. Each rule targets a cause, not the element you see spilling out.
