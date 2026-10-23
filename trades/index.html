@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://keweenaw-point-builders.goatcounter.com; connect-src 'self' https://keweenaw-point-builders.goatcounter.com; form-action 'self'; base-uri 'self'; object-src 'none'">
 <meta name="robots" content="noindex">
 <title>Keweenaw Point Builders — Carpentry &amp; Remodeling, Ashland WI</title>
 <meta name="description" content="Kitchens, bathrooms, decks, and windows for the Chequamegon Bay area. Licensed and insured. Free estimates — we call back within one business day.">
@@ -34,6 +34,7 @@
 .bwb-theme-ready #bwb-theme-btn{visibility:visible}
 @media print{.bwb-demo-bar{display:none}}
 </style>
+<script src="../shared/hours.js" defer></script>
 <link rel="preload" href="../shared/fonts/oswald-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <!-- LocalBusiness JSON-LD. Values below mirror data-fill keys noted in the adjacent comments;
      the intake-merge script updates these alongside the visible NAP (see FILL-MAP.md). -->
@@ -106,6 +107,12 @@ h2{font-size:var(--text-3xl)}
 .hero h1::before{content:"";display:block;width:76px;height:10px;background:var(--color-accent);margin-bottom:var(--space-4)}
 .hero .ph{border:none;border-radius:0;box-shadow:14px 14px 0 var(--t1-ink)}
 .hero > div:first-child{padding-block:var(--space-6)}
+/* Hours under the hero H1 (Gate 2 item 1). .hours-now owns its own line, so the open/closed
+   text that replaces "Hours" can never re-wrap the line under it (no layout shift). */
+/* plain-language price line on the service cards (Gate 2 item 8) */
+.price-line{font-size:var(--text-sm);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.hero-hours{margin-block:var(--space-4) var(--space-5)}
+.hero-hours .hours-now{display:block;font-family:'Oswald',Arial,sans-serif;font-weight:500;font-size:var(--text-sm);letter-spacing:.08em;text-transform:uppercase;color:var(--color-primary)}
 
 /* PROOF BAND — dark, giant numbers */
 .proof-band{background:var(--t1-ink);color:#DFE3E7;padding-block:var(--space-7)}
@@ -162,7 +169,10 @@ figcaption{font-family:'Oswald',Arial,sans-serif;font-size:var(--text-sm);text-t
 .section{padding-block:clamp(2.5rem,1rem + 3vw,3.5rem)}
 @media (max-width:47.99rem){.site-header{position:relative}}
 @media (max-width:29.99rem){.wordmark{font-size:var(--text-lg)}.header-phone{font-size:var(--text-base)}}
+/* smallest phones: one header row (wordmark, number, Menu icon) so it stays short enough to pin (Gate 2 item 5). The word "Menu" stays for screen readers. */
+@media (max-width:24rem){.header-bar{gap:var(--space-2)}.wordmark{font-size:var(--text-base)}.header-phone{font-size:.9375rem;padding-inline:.5rem}.nav-toggle{padding-inline:var(--space-2);min-width:44px;justify-content:center}.nav-toggle .nav-label{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}}
 </style>
+<script data-goatcounter="https://keweenaw-point-builders.goatcounter.com/count" async src="../shared/count.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -185,7 +195,7 @@ figcaption{font-family:'Oswald',Arial,sans-serif;font-size:var(--text-sm);text-t
     <a class="header-phone" href="tel:+17155550148" data-fill="phone">(715) 555-0148</a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
       <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M2 4h16M2 10h16M2 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      Menu
+      <span class="nav-label">Menu</span>
     </button>
   </div>
 </header>
@@ -195,6 +205,7 @@ figcaption{font-family:'Oswald',Arial,sans-serif;font-size:var(--text-sm);text-t
     <div class="container hero">
       <div>
         <h1 data-fill="h1_home">Honest carpentry and remodeling for the Chequamegon Bay area</h1>
+        <p class="hero-hours"><strong class="hours-now" data-hours-now>Hours</strong> <span data-fill="todays_hours">Mon–Fri 7am–5pm · Weekends by appointment</span></p>
         <p data-fill="tagline">We're a small Ashland crew that shows up when we say we will, keeps the job site clean, and stands behind the work — kitchens, bathrooms, decks, windows, and everything in between.</p>
         <p><a class="btn btn--primary" href="contact/">Request a free estimate</a>
         <a class="btn btn--secondary" href="work/">See our work</a></p>
@@ -220,16 +231,19 @@ figcaption{font-family:'Oswald',Arial,sans-serif;font-size:var(--text-sm);text-t
         <div>
           <h3 data-fill="service_1_name">Kitchen remodels</h3>
           <p data-fill="service_1_desc">From new cabinets and counters to taking a wall out entirely. We handle the plumbing and electrical coordination so you only deal with one crew.</p>
+          <p class="price-line">Typical cost: <span data-fill="service_1_price_from">$35,000–$95,000</span></p>
           <a href="services/">More about kitchens</a>
         </div>
         <div>
           <h3 data-fill="service_3_name">Decks &amp; porches</h3>
           <p data-fill="service_3_desc">Cedar, treated, or composite — built on proper footings so it doesn't heave when the frost goes four feet down.</p>
+          <p class="price-line">Typical cost: <span data-fill="service_3_price_from">$21,000–$29,000 for most decks</span></p>
           <a href="services/">More about decks</a>
         </div>
         <div>
           <h3 data-fill="service_4_name">Windows &amp; doors</h3>
           <p data-fill="service_4_desc">Drafty old sashes swapped for units that can actually handle a Lake Superior January. Most houses done in a few days.</p>
+          <p class="price-line">Typical cost: <span data-fill="service_4_price_from">from $950 a window installed; entry doors from $2,700</span></p>
           <a href="services/">More about windows</a>
         </div>
       </div>

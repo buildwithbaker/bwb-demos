@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://gitche-gumee-diner.goatcounter.com; connect-src 'self' https://gitche-gumee-diner.goatcounter.com; form-action 'self'; base-uri 'self'; object-src 'none'">
 <meta name="robots" content="noindex">
 <title>About Ruth &amp; the Diner — Gitche Gumee Diner, Ashland WI</title>
 <meta name="description" content="Meet Ruth Maki and the story behind Gitche Gumee Diner — scratch cooking on the Ashland waterfront since 1998. A family diner on the shore of Lake Superior.">
@@ -72,7 +72,8 @@ h2{font-size:var(--text-3xl);font-weight:600}
 @media (max-width:47.99rem){
   .nav-toggle{display:inline-flex}
   .header-bar{flex-direction:row;align-items:center;gap:var(--space-2) var(--space-3);text-align:left}
-  .wordmark{text-align:left;font-size:var(--text-2xl)}
+  .wordmark{text-align:left;font-size:var(--text-xl)} /* compact so the pinned phone bar stays short (Gate 2 item 5) */
+  .header-bar{padding-block:var(--space-2)}
   .site-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--color-bg);border-bottom:1px solid var(--color-border);box-shadow:0 8px 16px rgb(42 33 27 / .12);z-index:10}
   .site-nav.is-open{display:block}
   .site-nav ul{flex-direction:column;padding:var(--space-2)}
@@ -161,6 +162,7 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
 /* R-32 footer phone/email links meet the 24px target size */
 .site-footer a[href^="tel:"],.site-footer a[href^="mailto:"]{display:inline-block;min-height:24px;padding-block:3px}
 </style>
+<script data-goatcounter="https://gitche-gumee-diner.goatcounter.com/count" async src="../../shared/count.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -210,7 +212,7 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
     <div class="container">
       <h2>Pull up a stool</h2>
       <p>Come in for breakfast, stay for the pie. Call <a href="tel:+17155550126" style="color:#fff" data-fill="phone">(715) 555-0126</a> if you've got a question.</p>
-      <a class="btn btn--primary" href="../menu/">See the menu</a>
+      <a class="btn btn--primary" href="../menu/" data-track="menu">See the menu</a>
     </div>
   </section>
 </main>

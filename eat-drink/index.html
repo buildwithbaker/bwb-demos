@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://gitche-gumee-diner.goatcounter.com; connect-src 'self' https://gitche-gumee-diner.goatcounter.com; form-action 'self'; base-uri 'self'; object-src 'none'">
 <meta name="robots" content="noindex">
 <title>Gitche Gumee Diner — Scratch Breakfast &amp; Lunch, Ashland WI</title>
 <meta name="description" content="Classic diner on the south shore of Lake Superior. Scratch cooking, big portions, hot coffee. Breakfast all day and a Friday fish fry in downtown Ashland, WI.">
@@ -34,6 +34,7 @@
 .bwb-theme-ready #bwb-theme-btn{visibility:visible}
 @media print{.bwb-demo-bar{display:none}}
 </style>
+<script src="../shared/hours.js" defer></script>
 <link rel="preload" href="../shared/fonts/fraunces-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <!-- Restaurant JSON-LD. Values below mirror data-fill keys on the visible NAP; the intake-merge
      script updates these alongside business_name, phone, email, address, and hours (see FILL-MAP.md). -->
@@ -97,7 +98,8 @@ h2{font-size:var(--text-3xl);font-weight:600}
 @media (max-width:47.99rem){
   .nav-toggle{display:inline-flex}
   .header-bar{flex-direction:row;align-items:center;gap:var(--space-2) var(--space-3);text-align:left}
-  .wordmark{text-align:left;font-size:var(--text-2xl)}
+  .wordmark{text-align:left;font-size:var(--text-xl)} /* compact so the pinned phone bar stays short (Gate 2 item 5) */
+  .header-bar{padding-block:var(--space-2)}
   .site-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--color-bg);border-bottom:1px solid var(--color-border);box-shadow:0 8px 16px rgb(42 33 27 / .12);z-index:10}
   .site-nav.is-open{display:block}
   .site-nav ul{flex-direction:column;padding:var(--space-2)}
@@ -123,6 +125,13 @@ h2{font-size:var(--text-3xl);font-weight:600}
 .info-band .info-label{display:block;font-family:system-ui,sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--t2-terra-lt);margin-bottom:var(--space-1)}
 .info-band p{margin:0}
 .info-band a{color:#FFF8EE}
+/* open/closed status (shared/hours.js, Gate 2 item 3). The kicker line is held to one line and
+   the band label to a fixed minimum width, so the longer status never re-wraps the hero or
+   the band (no layout shift). */
+.hero-full .hero-kicker--now{font-size:.8125rem;margin-bottom:var(--space-1);color:#FFF8EE} /* .hero-full p would otherwise set it to --text-lg */
+@media (max-width:47.99rem){.hero-full .hero-kicker--now{font-size:.75rem;letter-spacing:.1em}}
+@media (max-width:22.5rem){.hero-full .hero-kicker--now{letter-spacing:.03em}} /* the longest status, "Closed · opens 12:30pm tomorrow", stays on one line at 320px */
+.info-band [data-hours-now]{min-width:min(17rem,100%)} /* capped: at 200% text 17rem alone overflowed a phone */
 .info-band a:focus-visible{outline-color:var(--t2-terra-lt)}
 
 /* SECTION HEADINGS — centered with rule ornament */
@@ -183,6 +192,7 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
 /* R-32 footer phone/email links meet the 24px target size */
 .site-footer a[href^="tel:"],.site-footer a[href^="mailto:"]{display:inline-block;min-height:24px;padding-block:3px}
 </style>
+<script data-goatcounter="https://gitche-gumee-diner.goatcounter.com/count" async src="../shared/count.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -214,10 +224,11 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
   <section class="hero-full" aria-label="Welcome">
     <img class="hero-bg" src="img/hero-breakfast.webp" width="1152" height="864" alt="a loaded diner breakfast plate with eggs, hashbrowns, and pancakes on the counter">
     <div class="hero-copy">
+      <p class="hero-kicker hero-kicker--now" data-hours-now>Kitchen hours</p>
       <p class="hero-kicker" data-fill="todays_hours">Mon–Sat 6am–2pm · Sun 7am–1pm</p>
       <h1 data-fill="h1_home">Scratch cooking and big portions on the shore of the big lake</h1>
       <p data-fill="tagline">We're an old-fashioned diner in downtown Ashland — real hashbrowns off the flat-top, pie baked that morning, and a coffee cup that never runs dry. Breakfast served all day, every day.</p>
-      <p><a class="btn btn--primary" href="menu/">See the menu</a>
+      <p><a class="btn btn--primary" href="menu/" data-track="menu">See the menu</a>
       <a class="btn btn--secondary" href="visit/">Hours &amp; directions</a></p>
     </div>
   </section>
@@ -225,10 +236,10 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
   <!-- HOURS / LOCATION BAND (above the fold — the #1 thing diners check) -->
   <section class="info-band" aria-label="Hours and location">
     <div class="container info-strip">
-      <p><span class="info-label">Kitchen hours</span><span data-fill="todays_hours">Mon–Sat 6am–2pm · Sun 7am–1pm</span></p>
+      <p><span class="info-label" data-hours-now>Kitchen hours</span><span data-fill="todays_hours">Mon–Sat 6am–2pm · Sun 7am–1pm</span></p>
       <p><span class="info-label">Find us</span><span data-fill="address">410 Gitche Gumee Avenue, Ashland, WI 54806</span></p>
       <p><span class="info-label">Call ahead</span><a href="tel:+17155550126" data-fill="phone">(715) 555-0126</a></p>
-      <p><span class="info-label">Directions</span><a href="visit/#location" data-fill="directions_url">Get directions →</a></p>
+      <p><span class="info-label">Directions</span><a href="visit/#location" data-fill="directions_url" data-track="directions">Get directions →</a></p>
     </div>
   </section>
 
@@ -289,8 +300,8 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
     <div class="container">
       <h2>Come hungry</h2>
       <p>We're right downtown, easy to find, and there's usually a stool at the counter. Bring your appetite.</p>
-      <a class="btn btn--primary" href="visit/#location" data-fill="directions_url">Get directions</a>
-      <a class="btn btn--secondary" href="menu/" style="color:#fff;border-color:#fff">See the menu</a>
+      <a class="btn btn--primary" href="visit/#location" data-fill="directions_url" data-track="directions">Get directions</a>
+      <a class="btn btn--secondary" href="menu/" style="color:#fff;border-color:#fff" data-track="menu">See the menu</a>
     </div>
   </section>
 </main>

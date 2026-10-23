@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://gitche-gumee-diner.goatcounter.com; connect-src 'self' https://gitche-gumee-diner.goatcounter.com; form-action 'self'; base-uri 'self'; object-src 'none'">
 <meta name="robots" content="noindex">
 <title>Privacy — Gitche Gumee Diner, Ashland WI</title>
-<meta name="description" content="How Gitche Gumee Diner handles the information you send through this website — plain English, no tracking, no ads.">
+<meta name="description" content="How Gitche Gumee Diner handles the information you send through this website — plain English, no ads, nothing that follows you around the web.">
 <link rel="canonical" href="https://buildwithbaker.github.io/bwb-demos/eat-drink/privacy/" data-fill="domain">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Privacy — Gitche Gumee Diner">
-<meta property="og:description" content="Plain-English privacy policy: form messages go straight to us, no ads, no tracking.">
+<meta property="og:description" content="Plain-English privacy policy: form messages go straight to us, no ads, nothing that follows you around the web.">
 <meta property="og:image" content="https://buildwithbaker.github.io/bwb-demos/eat-drink/share.jpg" data-fill="og_image">
 <meta property="og:url" content="https://buildwithbaker.github.io/bwb-demos/eat-drink/privacy/" data-fill="domain">
 <meta name="twitter:card" content="summary_large_image">
@@ -72,7 +72,8 @@ h2{font-size:var(--text-3xl);font-weight:600}
 @media (max-width:47.99rem){
   .nav-toggle{display:inline-flex}
   .header-bar{flex-direction:row;align-items:center;gap:var(--space-2) var(--space-3);text-align:left}
-  .wordmark{text-align:left;font-size:var(--text-2xl)}
+  .wordmark{text-align:left;font-size:var(--text-xl)} /* compact so the pinned phone bar stays short (Gate 2 item 5) */
+  .header-bar{padding-block:var(--space-2)}
   .site-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--color-bg);border-bottom:1px solid var(--color-border);box-shadow:0 8px 16px rgb(42 33 27 / .12);z-index:10}
   .site-nav.is-open{display:block}
   .site-nav ul{flex-direction:column;padding:var(--space-2)}
@@ -158,6 +159,7 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
 /* R-32 footer phone/email links meet the 24px target size */
 .site-footer a[href^="tel:"],.site-footer a[href^="mailto:"]{display:inline-block;min-height:24px;padding-block:3px}
 </style>
+<script data-goatcounter="https://gitche-gumee-diner.goatcounter.com/count" async src="../../shared/count.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -193,9 +195,10 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
 
         <h2>The contact form</h2>
         <p>This is a demo site, so the form here sends nothing. What you type is not delivered, stored or put in the page address. On a real site built from this template, messages go to the business's inbox through a form service and are used only to reply.</p>
-
-        <h2>No ads, no tracking</h2>
-        <p>We don't run ads. We don't use advertising cookies, tracking pixels, or third-party analytics that follow you around the web. There's no account to create and nothing to log into. Your browser keeps the ordinary records any website leaves behind, but we're not watching them.</p>
+        <div data-analytics="on">
+        <h2>No ads, nothing that follows you</h2>
+        <p>We don't run ads, and we don't use advertising cookies, tracking pixels, or anything that follows you to other sites. We do count visits with GoatCounter, a small privacy-first counter, so we know which pages get read and how many people tap to call us. It saves nothing in your browser (no cookies) and doesn't keep your IP address. There's no account to create and nothing to log into.</p>
+        </div>
 
         <h2>Getting your information removed</h2>
         <p>If you've contacted us and you'd like us to delete what you sent, just ask. Email <a href="mailto:hello@gitchegumeediner.example" data-fill="email">hello@gitchegumeediner.example</a> and we'll remove it from our inbox and records. No forms, no hoops.</p>
