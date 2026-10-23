@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://chequamegon-mercantile.goatcounter.com; connect-src 'self' https://chequamegon-mercantile.goatcounter.com; form-action 'self'; base-uri 'self'; object-src 'none'">
 <meta name="robots" content="noindex">
 <title>Chequamegon Mercantile — General Store &amp; Local Goods, Ashland WI</title>
 <meta name="description" content="An independent general store on Ashland's Chequamegon Square: provisions, camp &amp; cabin supplies, gifts, and goods from Lake Superior makers. Come see us.">
@@ -34,6 +34,7 @@
 .bwb-theme-ready #bwb-theme-btn{visibility:visible}
 @media print{.bwb-demo-bar{display:none}}
 </style>
+<script src="../shared/hours.js" defer></script>
 <link rel="preload" href="../shared/fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../shared/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <!-- Store JSON-LD. Values below mirror data-fill keys noted in FILL-MAP.md; the intake-merge
@@ -123,6 +124,18 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:0}
 /* hours strip — centered hairline band, no box */
 .hours-strip{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--space-3) var(--space-5);align-items:center;background:transparent;border:0;border-block:1px solid var(--color-border);border-radius:0;padding:var(--space-4) var(--space-5);margin-top:var(--space-7);font-size:var(--text-sm);letter-spacing:.08em;text-transform:uppercase}
 .hours-strip .sep{color:var(--color-border)}
+/* plain-language price note on each category card (Gate 2 item 8) */
+.price-note{font-size:var(--text-sm);font-weight:600;letter-spacing:.04em;color:var(--color-primary)}
+/* open/closed status (shared/hours.js, Gate 2 item 3): its own full-width row, so the answer
+   replacing "Hours" never re-wraps the strip (no layout shift) */
+.hours-strip .hours-now{flex-basis:100%;text-align:center;font-weight:600;color:var(--color-primary)}
+.hours-strip-top{display:none}
+@media (max-width:47.99rem){
+  .hours-strip-top{display:block;border-bottom:1px solid var(--color-border)}
+  .hours-strip-top .hours-strip{margin-top:0;border:0;padding:var(--space-3) 0;gap:var(--space-1) var(--space-4)}
+  .hours-strip-top .sep{display:none} /* wrapped, a separator dangles at a line end */
+  .hours-strip-wrap{display:none}
+}
 /* reviews */
 .review blockquote{margin:0 0 var(--space-3);font-style:italic;font-size:var(--text-lg);line-height:1.55}
 .review cite{font-style:normal;font-weight:500;font-size:var(--text-sm);letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-muted)}
@@ -157,6 +170,7 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:0}
 .field-error{display:block;color:var(--color-error);font-size:var(--text-sm);margin-top:var(--space-1)}
 .field input,.field textarea,.field select{border-radius:0}
 </style>
+<script data-goatcounter="https://chequamegon-mercantile.goatcounter.com/count" async src="../shared/count.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -177,7 +191,7 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:0}
       </ul>
     </nav>
     <a class="btn btn--secondary header-call" href="tel:+17155550187" data-fill-href="phone">Call</a>
-    <a class="btn btn--primary" href="visit/">Visit us</a>
+    <a class="btn btn--primary" href="visit/" data-track="visit-us">Visit us</a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
       <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M2 4h16M2 10h16M2 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       Menu
@@ -185,24 +199,40 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:0}
   </div>
 </header>
 <main id="main">
+  <!-- PHONE HOURS STRIP (Gate 2 item 1): below 48rem the strip sits directly under the header,
+       above the hero. The strip after the hero is the 48rem+ copy. Only one is ever displayed,
+       so a screen reader meets it once. Keep the two in step. -->
+  <div class="hours-strip-top">
+    <div class="container">
+      <div class="hours-strip">
+          <span class="hours-now" data-hours-now>Hours</span>
+          <span><span class="visually-hidden">Hours: </span><strong data-fill="todays_hours">Mon–Sat 9am–6pm · Sun 10am–4pm</strong></span>
+          <span class="sep" aria-hidden="true">·</span>
+          <span data-fill="address">220 Chequamegon Square, Ashland, WI 54806</span>
+          <span class="sep" aria-hidden="true">·</span>
+          <span><a href="visit/#location" data-fill="directions_url" data-track="directions">Get directions</a></span>
+      </div>
+    </div>
+  </div>
   <!-- HERO + HOURS STRIP -->
   <section class="section">
     <div class="container hero">
       <div>
         <h1 data-fill="h1_home">A proper general store on the shore of Lake Superior</h1>
         <p data-fill="tagline">Chequamegon Mercantile has stocked the useful, the local, and the hard-to-find on Chequamegon Square since the pantry ran on root cellars. Provisions, camp and cabin supplies, gifts worth giving, and shelves full of goods made by your neighbors.</p>
-        <p><a class="btn btn--primary" href="visit/">Visit us</a>
+        <p><a class="btn btn--primary" href="visit/" data-track="visit-us">Visit us</a>
         <a class="btn btn--secondary" href="gallery/">See what we carry</a></p>
       </div>
       <img class="ph" src="img/storefront-interior.webp" width="1152" height="864" alt="the Chequamegon Mercantile storefront and interior on Chequamegon Square">
     </div>
-    <div class="container">
+    <div class="container hours-strip-wrap">
       <div class="hours-strip">
+        <span class="hours-now" data-hours-now>Hours</span>
         <span><span class="visually-hidden">Hours: </span><strong data-fill="todays_hours">Mon–Sat 9am–6pm · Sun 10am–4pm</strong></span>
         <span class="sep" aria-hidden="true">·</span>
         <span data-fill="address">220 Chequamegon Square, Ashland, WI 54806</span>
         <span class="sep" aria-hidden="true">·</span>
-        <span><a href="visit/#location" data-fill="directions_url">Get directions</a></span>
+        <span><a href="visit/#location" data-fill="directions_url" data-track="directions">Get directions</a></span>
       </div>
     </div>
   </section>
@@ -216,21 +246,25 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:0}
         <div class="card">
           <h3 data-fill="category_1_name">Provisions &amp; pantry</h3>
           <p data-fill="category_1_desc">Coffee roasted up the road, Wisconsin cheese and sausage, maple syrup, jam, dry goods, and the bag of flour you forgot until you were already home.</p>
+          <p class="price-note" data-fill="category_1_price_note">Coffee from $16 a bag · honey from $11</p>
           <a href="gallery/">Browse provisions</a>
         </div>
         <div class="card">
           <h3 data-fill="category_2_name">Camp &amp; cabin</h3>
           <p data-fill="category_2_desc">Enamelware, wool socks, fire starters, bug dope, headlamps, and the odd hardware bit that keeps a north-woods cabin standing another season.</p>
+          <p class="price-note" data-fill="category_2_price_note">Enamel mugs from $20 · dry bags from $18</p>
           <a href="gallery/">Browse camp &amp; cabin</a>
         </div>
         <div class="card">
           <h3 data-fill="category_3_name">Local makers</h3>
           <p data-fill="category_3_desc">Pottery, candles, soap, prints, and small-batch goods from artists and producers around Chequamegon Bay. New faces on the shelf most months.</p>
+          <p class="price-note" data-fill="category_3_price_note">Pottery mugs from $28 · candles $24–$30 · soap $8</p>
           <a href="gallery/">Browse local makers</a>
         </div>
         <div class="card">
           <h3 data-fill="category_4_name">Gifts &amp; sundries</h3>
           <p data-fill="category_4_desc">Cards, books about the lake, kids' odds and ends, and Lake Superior keepsakes that beat a gas-station magnet by a country mile.</p>
+          <p class="price-note" data-fill="category_4_price_note">Cards $6 · field guides from $13</p>
           <a href="gallery/">Browse gifts &amp; sundries</a>
         </div>
       </div>
@@ -275,7 +309,7 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:0}
     <div class="container">
       <h2>Come see us</h2>
       <p>The shelves change with the season and the makers change with them. Best way to know what's in is to walk through the door.</p>
-      <a class="btn btn--primary" href="visit/#location" data-fill="directions_url">Get directions</a>
+      <a class="btn btn--primary" href="visit/#location" data-fill="directions_url" data-track="directions">Get directions</a>
     </div>
   </section>
 </main>
@@ -304,7 +338,7 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:0}
     </div>
     <div>
       <h2 class="footer-h">Stop in</h2>
-      <p><a class="btn btn--primary" href="visit/">Visit us</a></p>
+      <p><a class="btn btn--primary" href="visit/" data-track="visit-us">Visit us</a></p>
       <p><a href="privacy/">Privacy</a></p>
     </div>
   </div>

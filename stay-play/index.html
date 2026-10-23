@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://superior-pines.goatcounter.com; connect-src 'self' https://superior-pines.goatcounter.com; form-action 'self'; base-uri 'self'; object-src 'none'">
 <meta name="robots" content="noindex">
 <title>Superior Pines Cabins &amp; Charters — Lakeside Cabins near Bayfield, WI</title>
 <meta name="description" content="Three log cabins and guided Lake Superior fishing charters on the Bayfield shore near the Apostle Islands. Family-run — dock, fire ring, and lake trout out the door.">
@@ -34,6 +34,7 @@
 .bwb-theme-ready #bwb-theme-btn{visibility:visible}
 @media print{.bwb-demo-bar{display:none}}
 </style>
+<script src="../shared/hours.js" defer></script>
 <link rel="preload" href="../shared/fonts/marcellus-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../shared/fonts/jost-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <!-- LodgingBusiness JSON-LD. Values below mirror data-fill keys noted in FILL-MAP.md;
@@ -120,6 +121,10 @@ h1,h2,h3{font-family:"Marcellus","Times New Roman",serif;font-weight:400;letter-
 .hero-copy{max-width:44rem}
 .hero-copy h1{color:#fff;font-size:clamp(2.5rem,1.8rem + 3.2vw,4rem)}
 .hero-copy p{color:#fff;font-weight:300;font-size:1.3rem}
+/* Call hours under the hero H1 (Gate 2 item 1); .hours-now owns its own line (no layout shift). */
+.hero-copy .hero-hours{font-size:var(--text-base);font-weight:400;margin-block:var(--space-3) var(--space-5)}
+.hero-copy .hours-now{display:block;font-size:var(--text-sm);font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+@media (max-width:22.5rem){.hero-copy .hours-now{letter-spacing:.03em}} /* "Calls back at 12:30pm tomorrow" stays on one line at 320px */
 .hero-copy .btn--primary{background:#fff;color:var(--color-primary-dark)}
 .hero-copy .btn--primary:hover{background:#E4EFEC}
 /* proof stats — quiet hairline-ruled line */
@@ -208,7 +213,10 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
   .wordmark{font-size:1.05rem}
   .hero-full::before{height:17rem;background:linear-gradient(to bottom,rgb(10 34 44 / .78),rgb(10 34 44 / .66) 10rem,rgb(10 34 44 / 0))}
 }
+/* smallest phones: one header row (wordmark, Call, Menu icon) so it stays short enough to pin (Gate 2 item 5). The word "Menu" stays for screen readers. */
+@media (max-width:24rem){.header-bar{gap:var(--space-2)}.header-call{padding-inline:.9rem}.nav-toggle{padding-inline:var(--space-2);min-width:44px;justify-content:center}.header-bar>.wordmark{font-size:.95rem}.nav-toggle .nav-label{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}}
 </style>
+<script data-goatcounter="https://superior-pines.goatcounter.com/count" async src="../shared/count.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -231,10 +239,10 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
       </ul>
     </nav>
     <a class="btn btn--secondary header-call" href="tel:+17155550163" data-fill-href="phone">Call</a>
-    <a class="btn btn--primary" href="book/">Check dates</a>
+    <a class="btn btn--primary" href="book/" data-track="check-dates">Check dates</a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
       <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M2 4h16M2 10h16M2 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      Menu
+      <span class="nav-label">Menu</span>
     </button>
   </div>
 </header>
@@ -246,8 +254,9 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
       <div class="container">
         <div class="hero-copy">
           <h1 data-fill="h1_home">Three log cabins and a fishing boat on the Bayfield shore</h1>
+          <p class="hero-hours"><strong class="hours-now" data-hours-now data-hours-kind="calls">Reach us</strong> <span data-fill="todays_hours">Call or message 8am–8pm daily</span></p>
           <p data-fill="tagline">Wake up to Lake Superior out the window, spend the day on the water chasing lake trout, and end it around the fire ring. Family-run near Bayfield, right on the edge of the Apostle Islands.</p>
-          <p><a class="btn btn--primary" href="book/">Check dates</a></p>
+          <p><a class="btn btn--primary" href="book/" data-track="check-dates">Check dates</a></p>
         </div>
       </div>
     </div>
@@ -321,7 +330,7 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
     <div class="container">
       <h2>Ready when you are</h2>
       <p>Check the calendar, or call and we'll talk cabins, dates, and what's biting.</p>
-      <p><a class="btn btn--primary" href="book/">Check dates</a></p>
+      <p><a class="btn btn--primary" href="book/" data-track="check-dates">Check dates</a></p>
       <p><a class="phone-big" href="tel:+17155550163" data-fill="phone">(715) 555-0163</a></p>
     </div>
   </section>
@@ -353,7 +362,7 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
     </div>
     <div>
       <h2 class="footer-h">Ready when you are</h2>
-      <p><a class="btn btn--primary" href="book/">Check dates</a></p>
+      <p><a class="btn btn--primary" href="book/" data-track="check-dates">Check dates</a></p>
       <p><a href="privacy/">Privacy</a></p>
     </div>
   </div>

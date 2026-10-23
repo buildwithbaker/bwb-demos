@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://keweenaw-point-builders.goatcounter.com; connect-src 'self' https://keweenaw-point-builders.goatcounter.com; form-action 'self'; base-uri 'self'; object-src 'none'">
 <meta name="robots" content="noindex">
 <title>Services — Keweenaw Point Builders, Ashland WI</title>
 <meta name="description" content="Kitchen and bathroom remodels, decks, windows, basements, garages, siding, and small jobs — with typical timelines for each. Serving Chequamegon Bay.">
@@ -142,7 +142,10 @@ figcaption{font-family:'Oswald',Arial,sans-serif;font-size:var(--text-sm);text-t
 .section{padding-block:clamp(2.5rem,1rem + 3vw,3.5rem)}
 @media (max-width:47.99rem){.site-header{position:relative}}
 @media (max-width:29.99rem){.wordmark{font-size:var(--text-lg)}.header-phone{font-size:var(--text-base)}}
+/* smallest phones: one header row (wordmark, number, Menu icon) so it stays short enough to pin (Gate 2 item 5). The word "Menu" stays for screen readers. */
+@media (max-width:24rem){.header-bar{gap:var(--space-2)}.wordmark{font-size:var(--text-base)}.header-phone{font-size:.9375rem;padding-inline:.5rem}.nav-toggle{padding-inline:var(--space-2);min-width:44px;justify-content:center}.nav-toggle .nav-label{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}}
 </style>
+<script data-goatcounter="https://keweenaw-point-builders.goatcounter.com/count" async src="../../shared/count.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -165,7 +168,7 @@ figcaption{font-family:'Oswald',Arial,sans-serif;font-size:var(--text-sm);text-t
     <a class="header-phone" href="tel:+17155550148" data-fill="phone">(715) 555-0148</a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
       <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M2 4h16M2 10h16M2 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      Menu
+      <span class="nav-label">Menu</span>
     </button>
   </div>
 </header>
@@ -183,41 +186,49 @@ figcaption{font-family:'Oswald',Arial,sans-serif;font-size:var(--text-sm);text-t
           <h2 data-fill="service_1_name">Kitchen remodels</h2>
           <p data-fill="service_1_desc">Cabinets, counters, flooring, lighting — or the whole room down to the studs. We coordinate the plumber and electrician so you deal with one crew and one schedule.</p>
           <p class="timeline-line">Typical timeline: <span data-fill="service_1_timeline">3–5 weeks</span></p>
+          <p class="timeline-line price-line">Typical cost: <span data-fill="service_1_price_from">$35,000–$95,000</span></p>
         </div>
         <div>
           <h2 data-fill="service_2_name">Bathroom remodels</h2>
           <p data-fill="service_2_desc">Tub-to-shower conversions, tile work, ventilation done right so you're not fighting mold in two years. We check for hidden rot before we quote, not after.</p>
           <p class="timeline-line">Typical timeline: <span data-fill="service_2_timeline">2–3 weeks</span></p>
+          <p class="timeline-line price-line">Typical cost: <span data-fill="service_2_price_from">$28,000–$40,000</span></p>
         </div>
         <div>
           <h2 data-fill="service_3_name">Decks &amp; porches</h2>
           <p data-fill="service_3_desc">Cedar, treated, or composite, built on footings below the frost line so it stays level. Railings and stairs to code, every time.</p>
           <p class="timeline-line">Typical timeline: <span data-fill="service_3_timeline">1–2 weeks</span></p>
+          <p class="timeline-line price-line">Typical cost: <span data-fill="service_3_price_from">$21,000–$29,000 for most decks</span></p>
         </div>
         <div>
           <h2 data-fill="service_4_name">Windows &amp; doors</h2>
           <p data-fill="service_4_desc">Full-frame or insert replacements, flashed and insulated for a Lake Superior winter. You'll feel the difference the first cold snap.</p>
           <p class="timeline-line">Typical timeline: <span data-fill="service_4_timeline">2–4 days for most houses</span></p>
+          <p class="timeline-line price-line">Typical cost: <span data-fill="service_4_price_from">from $950 a window installed; entry doors from $2,700</span></p>
         </div>
         <div>
           <h2 data-fill="service_5_name">Basement finishing</h2>
           <p data-fill="service_5_desc">Family rooms, guest rooms, home offices. We deal with moisture first — insulation and vapor control before a single stud goes up.</p>
           <p class="timeline-line">Typical timeline: <span data-fill="service_5_timeline">4–6 weeks</span></p>
+          <p class="timeline-line price-line">Typical cost: <span data-fill="service_5_price_from">$45,000–$65,000</span></p>
         </div>
         <div>
           <h2 data-fill="service_6_name">Garages &amp; pole buildings</h2>
           <p data-fill="service_6_desc">Two-car garages, workshops, and storage buildings. Slab through shingles, sized for what you actually park and store.</p>
           <p class="timeline-line">Typical timeline: <span data-fill="service_6_timeline">3–6 weeks</span></p>
+          <p class="timeline-line price-line">Typical cost: <span data-fill="service_6_price_from">two-car garages $28,000–$38,000; pole buildings from $22,000</span></p>
         </div>
         <div>
           <h2 data-fill="service_7_name">Siding &amp; exterior repair</h2>
           <p data-fill="service_7_desc">Storm damage, soffit and fascia, rotten trim, full re-sides. We match existing materials where we can so patches don't look like patches.</p>
           <p class="timeline-line">Typical timeline: <span data-fill="service_7_timeline">1–2 weeks</span></p>
+          <p class="timeline-line price-line">Typical cost: <span data-fill="service_7_price_from">full re-side $21,000–$27,000; repairs from $450</span></p>
         </div>
         <div>
           <h2 data-fill="service_8_name">Small jobs &amp; fix-its</h2>
           <p data-fill="service_8_desc">Sticky doors, deck boards, drywall patches, grab bars for the folks. No job too small — small jobs are how most of our customers found us.</p>
           <p class="timeline-line">Typical timeline: <span data-fill="service_8_timeline">Half a day to two days</span></p>
+          <p class="timeline-line price-line">Typical cost: <span data-fill="service_8_price_from">$80 an hour, two-hour minimum</span></p>
         </div>
       </div>
       <aside class="callout stack" aria-label="Good to know">

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://superior-pines.goatcounter.com; connect-src 'self' https://superior-pines.goatcounter.com; form-action 'self'; base-uri 'self'; object-src 'none'">
 <meta name="robots" content="noindex">
 <title>Rates &amp; Policies — Superior Pines, Bayfield WI</title>
 <meta name="description" content="Seasonal nightly cabin rates and per-trip charter rates for Superior Pines near Bayfield, WI — plus what's included and our pet, minimum-stay, and cancellation policies.">
@@ -156,7 +156,10 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
 .incl-list li::before{content:"\2713";position:absolute;left:0;color:var(--color-success);font-weight:700}
 .policy dt{font-weight:600;margin-top:var(--space-4)}
 .policy dd{margin:var(--space-1) 0 0;max-width:65ch}
+/* smallest phones: one header row (wordmark, Call, Menu icon) so it stays short enough to pin (Gate 2 item 5). The word "Menu" stays for screen readers. */
+@media (max-width:24rem){.header-bar{gap:var(--space-2)}.header-call{padding-inline:.9rem}.nav-toggle{padding-inline:var(--space-2);min-width:44px;justify-content:center}.header-bar>.wordmark{font-size:.95rem}.nav-toggle .nav-label{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}}
 </style>
+<script data-goatcounter="https://superior-pines.goatcounter.com/count" async src="../../shared/count.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -178,10 +181,10 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
       </ul>
     </nav>
     <a class="btn btn--secondary header-call" href="tel:+17155550163" data-fill-href="phone">Call</a>
-    <a class="btn btn--primary" href="../book/">Check dates</a>
+    <a class="btn btn--primary" href="../book/" data-track="check-dates">Check dates</a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
       <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M2 4h16M2 10h16M2 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      Menu
+      <span class="nav-label">Menu</span>
     </button>
   </div>
 </header>
@@ -270,7 +273,7 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
         <dt>Cancellation</dt>
         <dd data-fill="cancellation_policy">Full refund up to 14 days before arrival. Inside 14 days we refund whatever we're able to rebook. Charters run rain or shine, but we'll always reschedule for genuinely unsafe water.</dd>
       </dl>
-      <p><a class="btn btn--primary" href="../book/">Check dates</a></p>
+      <p><a class="btn btn--primary" href="../book/" data-track="check-dates">Check dates</a></p>
     </div>
   </section>
 </main>
@@ -300,7 +303,7 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
     </div>
     <div>
       <h2 class="footer-h">Ready when you are</h2>
-      <p><a class="btn btn--primary" href="../book/">Check dates</a></p>
+      <p><a class="btn btn--primary" href="../book/" data-track="check-dates">Check dates</a></p>
       <p><a href="../privacy/">Privacy</a></p>
     </div>
   </div>

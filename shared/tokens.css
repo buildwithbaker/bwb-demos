@@ -98,13 +98,18 @@ a{color:var(--color-primary)}
 .visually-hidden{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;
   clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
 
-/* PHONE HEADER. Below 48rem the header scrolls away with the page instead of
-   sticking: at large text sizes a pinned header eats the screen and hides focused
-   controls (SC 2.4.11). Each template keeps its one main action, Call, as a visible
-   button in the header at every width (KB module-03, mobile nav). The bottom action
-   bar that used to carry it was removed on 2026-10-12. */
+/* PHONE HEADER (Gate 2 item 5, rebuilt 2026-10-22). Below 48rem the header pins to the top
+   only while it is small: shared/site.js adds html.pin-header when the header is no taller
+   than a quarter of the screen, and takes it off again the moment large text, page zoom or a
+   short landscape screen makes it taller - so a pinned header can never fill the screen.
+   While pinned, scroll-padding-top keeps a control that receives focus from scrolling in
+   under it (SC 2.4.11). Without JavaScript the header scrolls away with the page, as it did
+   from 2026-10-12. z-index stays 10 so the skip link (20) still shows above it. The bottom
+   action bar removed on 2026-10-12 stays gone (KB web-design module-03). */
 @media (max-width:47.99rem){
   .site-header{position:relative}
+  html.pin-header .site-header{position:sticky;top:0;z-index:10}
+  html.pin-header{scroll-padding-top:calc(var(--pin-h, 0px) + .5rem)}
 }
 
 /* NARROW-VIEWPORT SAFETY - nothing may claim an intrinsic width wider than its

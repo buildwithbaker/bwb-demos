@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://gitche-gumee-diner.goatcounter.com; connect-src 'self' https://gitche-gumee-diner.goatcounter.com; form-action 'self'; base-uri 'self'; object-src 'none'">
 <meta name="robots" content="noindex">
 <title>Visit Us — Hours, Location &amp; Parking — Gitche Gumee Diner, Ashland WI</title>
 <meta name="description" content="Find Gitche Gumee Diner at 410 Gitche Gumee Avenue in downtown Ashland, WI. Hours, free parking, directions to the lakeshore, and takeout info.">
@@ -72,7 +72,8 @@ h2{font-size:var(--text-3xl);font-weight:600}
 @media (max-width:47.99rem){
   .nav-toggle{display:inline-flex}
   .header-bar{flex-direction:row;align-items:center;gap:var(--space-2) var(--space-3);text-align:left}
-  .wordmark{text-align:left;font-size:var(--text-2xl)}
+  .wordmark{text-align:left;font-size:var(--text-xl)} /* compact so the pinned phone bar stays short (Gate 2 item 5) */
+  .header-bar{padding-block:var(--space-2)}
   .site-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--color-bg);border-bottom:1px solid var(--color-border);box-shadow:0 8px 16px rgb(42 33 27 / .12);z-index:10}
   .site-nav.is-open{display:block}
   .site-nav ul{flex-direction:column;padding:var(--space-2)}
@@ -173,6 +174,7 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
 .location-card__addr{margin:0;font-size:var(--text-xl);line-height:1.35;color:var(--color-text)}
 .location-card p:last-child{margin-bottom:0}
 </style>
+<script data-goatcounter="https://gitche-gumee-diner.goatcounter.com/count" async src="../../shared/count.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -213,14 +215,14 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
         <svg width="32" height="32" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
         <p class="location-card__label">Find us at</p>
         <p class="location-card__addr" data-fill="address">410 Gitche Gumee Avenue, Ashland, WI 54806</p>
-        <p>Downtown Ashland, one block from the lakewalk. <a href="#location" data-fill="directions_url">Get directions →</a></p>
+        <p>Downtown Ashland, one block from the lakewalk. <a href="#location" data-fill="directions_url" data-track="directions">Get directions →</a></p>
       </div>
       <aside class="callout stack" aria-label="Where and when">
         <h2>Where to find us</h2>
         <p><strong>Address:</strong><br><span data-fill="address">410 Gitche Gumee Avenue, Ashland, WI 54806</span></p>
         <p><strong>Phone:</strong><br><a href="tel:+17155550126" data-fill="phone">(715) 555-0126</a></p>
         <p><strong>Hours:</strong><br><span data-fill="hours">Monday–Saturday, 6am–2pm<br>Sunday, 7am–1pm</span></p>
-        <p><a class="btn btn--primary" href="#location" data-fill="directions_url">Get directions</a></p>
+        <p><a class="btn btn--primary" href="#location" data-fill="directions_url" data-track="directions">Get directions</a></p>
       </aside>
     </div>
   </section>
@@ -275,7 +277,7 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
     <div class="container">
       <h2>Come hungry</h2>
       <p>Breakfast's on all day and there's usually a stool at the counter with your name on it.</p>
-      <a class="btn btn--primary" href="#location" data-fill="directions_url">Get directions</a>
+      <a class="btn btn--primary" href="#location" data-fill="directions_url" data-track="directions">Get directions</a>
     </div>
   </section>
 </main>

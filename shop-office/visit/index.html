@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://chequamegon-mercantile.goatcounter.com; connect-src 'self' https://chequamegon-mercantile.goatcounter.com; form-action 'self'; base-uri 'self'; object-src 'none'">
 <meta name="robots" content="noindex">
 <title>Visit Us — Hours, Location &amp; Parking — Chequamegon Mercantile, Ashland WI</title>
 <meta name="description" content="Find Chequamegon Mercantile at 220 Chequamegon Square in Ashland, WI. Hours, parking, directions, and our seasonal summer schedule.">
@@ -141,6 +141,7 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:0}
 .location-card__addr{margin:0;font-size:var(--text-xl);line-height:1.35;color:var(--color-text)}
 .location-card p:last-child{margin-bottom:0}
 </style>
+<script data-goatcounter="https://chequamegon-mercantile.goatcounter.com/count" async src="../../shared/count.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -161,7 +162,7 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:0}
       </ul>
     </nav>
     <a class="btn btn--secondary header-call" href="tel:+17155550187" data-fill-href="phone">Call</a>
-    <a class="btn btn--primary" href="./">Visit us</a>
+    <a class="btn btn--primary" href="./" data-track="visit-us">Visit us</a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
       <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M2 4h16M2 10h16M2 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       Menu
@@ -183,7 +184,7 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:0}
           <p class="location-card__label">Find us at</p>
           <p class="location-card__addr" data-fill="address">220 Chequamegon Square, Ashland, WI 54806</p>
         </div>
-        <p style="margin-top:var(--space-4)"><a class="btn btn--primary" href="#location" data-fill="directions_url">Get directions</a></p>
+        <p style="margin-top:var(--space-4)"><a class="btn btn--primary" href="#location" data-fill="directions_url" data-track="directions">Get directions</a></p>
         <h2>Parking</h2>
         <p data-fill="parking_note">Free two-hour street parking rings Chequamegon Square, and there's a municipal lot behind the building off Second Avenue with no time limit. The loading zone out front is fair game for a quick run-in — flip on your flashers and grab your coffee. Bike rack's by the door.</p>
       </div>
@@ -268,7 +269,7 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:0}
     </div>
     <div>
       <h2 class="footer-h">Stop in</h2>
-      <p><a class="btn btn--primary" href="./">Visit us</a></p>
+      <p><a class="btn btn--primary" href="./" data-track="visit-us">Visit us</a></p>
       <p><a href="../privacy/">Privacy</a></p>
     </div>
   </div>
