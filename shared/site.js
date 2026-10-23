@@ -45,22 +45,27 @@
   });
 })();
 
-/* Phone header pin (Gate 2 item 5). Pins the header below 48rem only while it is no taller
-   than a quarter of the screen; see the PHONE HEADER block in tokens.css for why. It also
-   publishes the header height as --pin-h for scroll-padding-top. */
+/* Header size cap (Gate 2 item 5). Below 48rem the header pins only while it is no taller than a
+   quarter of the screen (html.pin-header). From 48rem up the templates pin it by their own CSS,
+   so there the same test works the other way: html.header-unpin lets it scroll away when it
+   would take more than a quarter (phone landscape, large text). See the PHONE HEADER block in
+   tokens.css for why. --pin-h carries the header height for scroll-padding-top. */
 (function () {
   'use strict';
   var h = document.querySelector('.site-header');
   if (!h || !window.matchMedia) return;
   var root = document.documentElement, phone = window.matchMedia('(max-width: 47.99rem)');
   function fit() {
-    var hh = h.offsetHeight;
+    var hh = h.offsetHeight, small = hh > 0 && hh <= window.innerHeight * 0.25;
     root.style.setProperty('--pin-h', hh + 'px');
-    root.classList.toggle('pin-header', phone.matches && hh > 0 && hh <= window.innerHeight * 0.25);
+    root.classList.remove('header-unpin');
+    if (phone.matches) { root.classList.toggle('pin-header', small); return; }
+    root.classList.remove('pin-header');
+    /* only a header the page itself pins is capped (t3 home floats its header, t2 never pins) */
+    if (!small && getComputedStyle(h).position === 'sticky') root.classList.add('header-unpin');
   }
   fit();
   window.addEventListener('resize', fit);
   if (phone.addEventListener) phone.addEventListener('change', fit);
   if (window.ResizeObserver) new ResizeObserver(fit).observe(h);
 })();
-

@@ -61,6 +61,8 @@
   "hasMenu": "https://gitchegumeediner.example/menu/"
 }
 </script>
+<!-- Seasons and closed days for the "open now" line (shared/hours.js); merge.py writes it from hours_rules -->
+<script type="application/json" id="hours-rules">{"seasons": [{"from": "06-01", "to": "08-31", "hours": "Mo-Su 06:00-15:00"}], "closed": ["thanksgiving", "christmas"]}</script>
 <style>
 /* T2 "Warm Editorial" visual system — v2.0 | overrides the shared kit per template.
    Kit (spacing / a11y / form / btn primitives) still lives in ../shared/tokens.css. */
@@ -129,6 +131,8 @@ h2{font-size:var(--text-3xl);font-weight:600}
    the band label to a fixed minimum width, so the longer status never re-wraps the hero or
    the band (no layout shift). */
 .hero-full .hero-kicker--now{font-size:.8125rem;margin-bottom:var(--space-1);color:#FFF8EE} /* .hero-full p would otherwise set it to --text-lg */
+/* street address in the first screen (Gate 2 item 1: a diner is a place you drive to) */
+.hero-full .hero-address{font-size:var(--text-sm);margin:0 0 var(--space-4);color:#F3E9DA;text-shadow:0 0 2px rgb(0 0 0 / .9),0 1px 4px rgb(0 0 0 / .9)}
 @media (max-width:47.99rem){.hero-full .hero-kicker--now{font-size:.75rem;letter-spacing:.1em}}
 @media (max-width:22.5rem){.hero-full .hero-kicker--now{letter-spacing:.03em}} /* the longest status, "Closed · opens 12:30pm tomorrow", stays on one line at 320px */
 .info-band [data-hours-now]{min-width:min(17rem,100%)} /* capped: at 200% text 17rem alone overflowed a phone */
@@ -226,6 +230,7 @@ figcaption{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var
     <div class="hero-copy">
       <p class="hero-kicker hero-kicker--now" data-hours-now>Kitchen hours</p>
       <p class="hero-kicker" data-fill="todays_hours">Mon–Sat 6am–2pm · Sun 7am–1pm</p>
+      <p class="hero-address"><span class="visually-hidden">Address: </span><span data-fill="address">410 Gitche Gumee Avenue, Ashland, WI 54806</span></p>
       <h1 data-fill="h1_home">Scratch cooking and big portions on the shore of the big lake</h1>
       <p data-fill="tagline">We're an old-fashioned diner in downtown Ashland — real hashbrowns off the flat-top, pie baked that morning, and a coffee cup that never runs dry. Breakfast served all day, every day.</p>
       <p><a class="btn btn--primary" href="menu/" data-track="menu">See the menu</a>
