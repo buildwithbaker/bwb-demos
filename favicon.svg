@@ -1,5 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Site icon placeholder">
-  <rect width="64" height="64" rx="12" fill="#1B211D"/>
-  <path d="M12 30 32 14l20 16" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
-  <rect x="19" y="32" width="26" height="18" fill="#FFFFFF"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Build with Baker demo sites">
+  <!-- BwB demo showroom icon (2026-10-25): a browser window holding the four demo sites, one pane per demo colour (eat-drink, shop-office, stay-play, trades), on the BwB indigo tile. -->
+  <rect width="64" height="64" rx="12" fill="#2B4A8B"/>
+  <rect x="9" y="12" width="46" height="40" rx="5" fill="#F7F4EC"/>
+  <circle cx="14.5" cy="17" r="1.8" fill="#2B4A8B"/><circle cx="20" cy="17" r="1.8" fill="#2B4A8B"/><circle cx="25.5" cy="17" r="1.8" fill="#2B4A8B"/>
+  <rect x="13" y="22" width="17.5" height="12" rx="2" fill="#A34A26"/>
+  <rect x="33.5" y="22" width="17.5" height="12" rx="2" fill="#5B4A68"/>
+  <rect x="13" y="36.5" width="17.5" height="12" rx="2" fill="#23617A"/>
+  <rect x="33.5" y="36.5" width="17.5" height="12" rx="2" fill="#2F5D3A"/>
 </svg>
